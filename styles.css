@@ -141,11 +141,14 @@ button {
 
 /* Header layout centers navigation while preserving logo and menu spacing. */
 .header {
-  height: 110px;
+  min-height: 94px;
   display: grid;
-  grid-template-columns: 292px 1fr 72px;
+  grid-template-columns: 220px 1fr 64px;
   align-items: center;
-  padding: 0 14px 0 20px;
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: 10px 24px;
+  column-gap: 20px;
   background: #fff;
 }
 
@@ -153,6 +156,13 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+}
+
+.brand--image {
+  gap: 0;
+  width: 100%;
+  justify-content: center;
+  align-self: center;
 }
 
 .brand__mark {
@@ -165,6 +175,16 @@ button {
 .brand__mark svg {
   width: 100%;
   height: 100%;
+}
+
+.brand__logo {
+  display: block;
+  width: 156px;
+  max-width: 100%;
+  max-height: 62px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 .brand__text {
@@ -189,16 +209,20 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  padding-left: 18px;
+  gap: 30px;
+  padding-left: 0;
+  justify-self: center;
+  align-self: center;
+  flex-wrap: wrap;
 }
 
 .nav a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
   color: #232730;
 }
 
@@ -208,8 +232,8 @@ button {
 }
 
 .menu-toggle {
-  width: 54px;
-  height: 54px;
+  width: 50px;
+  height: 50px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -219,6 +243,8 @@ button {
   border-radius: 12px;
   background: #fff;
   cursor: pointer;
+  justify-self: center;
+  align-self: center;
 }
 
 .menu-toggle span {
@@ -256,16 +282,15 @@ body.menu-open .menu-toggle span:nth-child(3) {
 }
 
 .hero__art {
-  background-image: url("assets/hero-scene.svg");
+  background-image: url("assets/city-sunset-opt.jpg");
   background-size: cover;
   background-position: center center;
   transform: scale(1.02);
+  filter: brightness(1.18) saturate(1.06) contrast(1.01);
 }
 
 .hero__overlay {
-  background:
-    linear-gradient(90deg, rgba(12, 20, 34, 0.74) 0%, rgba(12, 20, 34, 0.55) 32%, rgba(12, 20, 34, 0.3) 58%, rgba(12, 20, 34, 0.18) 100%),
-    linear-gradient(180deg, rgba(5, 10, 18, 0.18) 0%, rgba(5, 10, 18, 0.42) 100%);
+  background: transparent;
 }
 
 .hero__content {
@@ -283,6 +308,10 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .hero__copy {
   max-width: 760px;
   padding-top: 10px;
+  padding: 18px 22px 22px;
+  border-radius: 28px;
+  background: linear-gradient(90deg, rgba(10, 16, 26, 0.28) 0%, rgba(10, 16, 26, 0.16) 55%, rgba(10, 16, 26, 0) 100%);
+  backdrop-filter: blur(2px);
 }
 
 .hero__badge {
@@ -309,6 +338,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   letter-spacing: -2px;
   font-weight: 700;
   color: #fff;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 .hero__title-accent {
@@ -323,6 +353,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   letter-spacing: -0.2px;
   color: rgba(255, 255, 255, 0.94);
   font-weight: 400;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
 }
 
 .hero__subtitle-accent {
@@ -338,6 +369,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   color: rgba(255, 255, 255, 0.9);
   font-size: 16px;
   line-height: 1.5;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
 .hero__trust-icon {
@@ -581,7 +613,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   inset: 0 0 214px 28px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0) 56%, rgba(17, 23, 33, 0.08) 100%),
-    url("assets/contact-villa-scene.svg") center/cover no-repeat;
+    url("assets/wooded-park-middle-city-opt.jpg") center/cover no-repeat;
 }
 
 .about__photo--bottom {
@@ -592,7 +624,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   border: 8px solid #fff;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, rgba(17, 23, 33, 0.08) 100%),
-    url("assets/about-team-scene.svg") center/cover no-repeat;
+    url("assets/female-business-suit-holding-toy-model-house-keys-opt.jpg") center/cover no-repeat;
 }
 
 /* Floating tools mirror the right-side controls visible across the design. */
@@ -929,7 +961,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   inset: 0 42px 188px 0;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, rgba(14, 20, 32, 0.08) 100%),
-    url("assets/contact-villa-scene.svg") center/cover no-repeat;
+    url("assets/real-estate-sector-opt.jpg") center/cover no-repeat;
 }
 
 .choose-us__photo--secondary {
@@ -940,7 +972,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   border: 10px solid #fff;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0) 58%, rgba(14, 20, 32, 0.12) 100%),
-    url("assets/featured-project-main.svg") center/cover no-repeat;
+    url("assets/human-hands-holding-model-dream-house-opt.jpg") center/cover no-repeat;
 }
 
 .choose-us__content {
@@ -1151,6 +1183,10 @@ body.menu-open .menu-toggle span:nth-child(3) {
   .header {
     grid-template-columns: 1fr auto;
     grid-template-areas: "brand menu";
+  }
+
+  .brand__logo {
+    width: 176px;
   }
 
   .nav {
@@ -2122,7 +2158,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   width: 28px;
   height: 3px;
   background: currentColor;
-  box-shadow: -12px 0 0 #1c2128;
+  box-shadow: -12px 0 0 currentColor;
 }
 
 .values__title {
@@ -2156,14 +2192,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
 }
 
 .value-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 96px;
-  height: 54px;
-  background: #f5f2ee;
-  border-bottom-left-radius: 26px;
+  display: none;
 }
 
 .value-card__head {
@@ -2296,9 +2325,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   }
 
   .value-card::before {
-    width: 70px;
-    height: 38px;
-    border-bottom-left-radius: 18px;
+    display: none;
   }
 
   .value-card__head {
@@ -2621,7 +2648,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .sell-idea__photo--top {
   top: 0;
   min-height: 280px;
-  background-image: url("assets/contact-villa-scene.svg");
+  background-image: url("assets/real-estate-sector-1-opt.jpg");
 }
 
 .sell-idea__photo--bottom {
@@ -2630,7 +2657,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   bottom: 0;
   min-height: 294px;
   border: 8px solid #fffaf5;
-  background-image: url("assets/about-team-scene.svg");
+  background-image: url("assets/side-view-woman-working-as-real-estate-agent-opt.jpg");
 }
 
 .quicker-sale {
@@ -2683,14 +2710,16 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .quicker-sale__grid {
   margin-top: 42px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 520px));
+  grid-template-columns: repeat(3, minmax(0, 380px));
   gap: 28px 20px;
   justify-content: center;
+  align-items: stretch;
 }
 
 .quicker-sale__card {
   position: relative;
   min-height: 254px;
+  height: 100%;
   padding: 22px 22px 24px;
   border-radius: 28px;
   border: 1px solid rgba(229, 222, 214, 0.96);
@@ -2741,6 +2770,12 @@ body.menu-open .menu-toggle span:nth-child(3) {
   color: #434c5a;
   font-size: 14px;
   line-height: 1.62;
+}
+
+@media (max-width: 1250px) {
+  .quicker-sale__grid {
+    grid-template-columns: repeat(2, minmax(0, 520px));
+  }
 }
 
 @media (max-width: 900px) {
@@ -3098,7 +3133,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(4, 8, 14, 0.18) 0%, rgba(4, 8, 14, 0) 52%),
-    url("assets/contact-villa-scene.svg") center/cover no-repeat;
+    url("assets/real-estate-sector-opt.jpg") center/cover no-repeat;
 }
 
 .contact-showcase__map {
@@ -3705,7 +3740,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   border-radius: 30px;
   background:
     linear-gradient(180deg, rgba(15, 20, 32, 0.08) 0%, rgba(15, 20, 32, 0.02) 100%),
-    url("assets/contact-villa-scene.svg") center/cover no-repeat;
+    url("assets/clouds-sunlight-phone-door-modern-opt.jpg") center/cover no-repeat;
   box-shadow: 0 22px 46px rgba(24, 19, 16, 0.08);
 }
 
@@ -4058,7 +4093,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
 /* Footer uses a strong hero panel plus a layered white information card. */
 .site-footer {
   position: relative;
-  padding: 24px 20px 0;
+  padding: 18px 20px 0;
   background:
     linear-gradient(180deg, #6c7a91 0%, #2c3139 44%, #161a1f 100%);
 }
@@ -4072,7 +4107,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(13, 18, 24, 0.18) 0%, rgba(13, 18, 24, 0.28) 100%),
-    url("assets/contact-villa-scene.svg") center/cover no-repeat;
+    url("assets/real-estate-sector-opt.jpg") center/cover no-repeat;
 }
 
 .site-footer__hero-title {
@@ -4109,19 +4144,27 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .site-footer__panel {
   position: relative;
   z-index: 1;
-  max-width: 1760px;
-  margin: -72px auto 0;
-  padding: 58px 28px 0;
-  border-radius: 44px 44px 0 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 44px 34px 0;
+  border-radius: 30px 30px 0 0;
   background: #fff;
   box-shadow: 0 26px 62px rgba(12, 12, 14, 0.16);
 }
 
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr 1fr 0.9fr 1fr;
-  gap: 22px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 34px;
   align-items: start;
+  justify-items: center;
+}
+
+.site-footer__about,
+.site-footer__links,
+.site-footer__location {
+  width: 100%;
+  max-width: 300px;
 }
 
 .site-footer__about h3,
@@ -4129,33 +4172,51 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .site-footer__location h3 {
   margin: 0;
   color: #181b22;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.2;
-  font-weight: 600;
+  font-weight: 700;
+  text-align: center;
 }
 
 .site-footer__about p {
   margin: 22px 0 0;
-  max-width: 360px;
+  max-width: 300px;
   color: #373b45;
-  font-size: 14px;
-  line-height: 1.75;
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 500;
+  text-align: center;
+}
+
+.site-footer__brand-logo {
+  display: block;
+  width: 168px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 .site-footer__contact-list {
   margin-top: 28px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  width: 100%;
 }
 
 .site-footer__contact-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px 1fr;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  max-width: 300px;
+  margin: 0 auto;
   color: #232833;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 500;
+  text-align: left;
 }
 
 .site-footer__contact-icon {
@@ -4179,14 +4240,18 @@ body.menu-open .menu-toggle span:nth-child(3) {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  align-items: center;
 }
 
 .site-footer__links a {
   position: relative;
+  width: fit-content;
   padding-left: 36px;
   color: #2a2f38;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .site-footer__links a::before {
@@ -4215,21 +4280,25 @@ body.menu-open .menu-toggle span:nth-child(3) {
   box-sizing: border-box;
 }
 
-.site-footer__map-box {
+.site-footer__address {
   margin-top: 22px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #f4f5f7;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
-.site-footer__map-box img {
-  width: 100%;
-  height: auto;
-  display: block;
+.site-footer__address p {
+  margin: 0;
+  color: #2f3440;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+  text-align: center;
 }
 
 .site-footer__divider {
-  margin-top: 36px;
+  margin-top: 40px;
   height: 1px;
   background: #dedad5;
 }
@@ -4293,14 +4362,17 @@ body.menu-open .menu-toggle span:nth-child(3) {
   padding: 18px 0 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .site-footer__bottom p {
   margin: 0;
   color: #181c24;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .site-footer__bottom p span {
@@ -4329,76 +4401,33 @@ body.menu-open .menu-toggle span:nth-child(3) {
 }
 
 @media (max-width: 1250px) {
-  .site-footer__hero {
-    min-height: 620px;
-  }
-
-  .site-footer__hero-badge {
-    top: 250px;
-    width: 210px;
-    height: 210px;
-    font-size: 18px;
-  }
-
   .site-footer__panel {
-    margin-top: -70px;
-    padding: 60px 28px 0;
+    padding: 40px 28px 0;
   }
 
-  .site-footer__grid,
-  .site-footer__gallery-row {
+  .site-footer__grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .site-footer__about,
-  .site-footer__gallery {
-    grid-column: 1 / -1;
-  }
-
-  .site-footer__gallery {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 900px) {
   .site-footer {
-    padding: 24px 16px 0;
-  }
-
-  .site-footer__hero {
-    min-height: 420px;
-    border-radius: 26px 26px 0 0;
-  }
-
-  .site-footer__hero-title {
-    padding-top: 64px;
-    font-size: clamp(56px, 10vw, 92px);
-    letter-spacing: -2px;
-  }
-
-  .site-footer__hero-badge {
-    top: 198px;
-    width: 150px;
-    height: 150px;
-    font-size: 15px;
+    padding: 18px 16px 0;
   }
 
   .site-footer__panel {
-    margin-top: -40px;
-    padding: 40px 20px 0;
+    padding: 34px 20px 0;
     border-radius: 28px 28px 0 0;
   }
 
-  .site-footer__grid,
-  .site-footer__gallery-row,
-  .site-footer__bottom {
+  .site-footer__grid {
     grid-template-columns: 1fr;
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 28px;
   }
 
-  .site-footer__gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -4436,16 +4465,8 @@ body.menu-open .menu-toggle span:nth-child(3) {
     font-size: 15px;
   }
 
-  .site-footer__gallery-copy h3 {
-    font-size: 24px;
-  }
-
-  .site-footer__gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .site-footer__bottom {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .site-footer__socials {
