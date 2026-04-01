@@ -10,9 +10,9 @@ const backToTopButton = document.querySelector(".floating-tools__top");
 // Slide content stays centralized here, which keeps rendering logic clean.
 const heroScenes = [
   {
-    badge: "WELCOME TO PILLAR",
-    title: "Exclusive Suites",
-    subtitle: "Premium Living. Affordable Prices"
+    badge: "GET A CASH OFFER",
+    title: "Sell Your House <span class=\"hero__title-accent\">Fast</span> In Memphis, TN?",
+    subtitle: "Receive a guaranteed <span class=\"hero__subtitle-accent\">cash offer</span> with no pressure, no hidden costs, and no hassle."
   }
 ];
 
@@ -39,8 +39,8 @@ function renderScene(index) {
 
   hero.dataset.sceneIndex = String(index);
   heroContent.badge.textContent = scene.badge;
-  heroContent.title.textContent = scene.title;
-  heroContent.subtitle.textContent = scene.subtitle;
+  heroContent.title.innerHTML = scene.title;
+  heroContent.subtitle.innerHTML = scene.subtitle;
 }
 
 // Rotate through scenes safely so additional slides can be added later without rewrites.
