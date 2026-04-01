@@ -1,0 +1,31 @@
+<svg width="700" height="700" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky2" x1="180" y1="10" x2="528" y2="476" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#94BDD2"/>
+      <stop offset="1" stop-color="#E8EFE7"/>
+    </linearGradient>
+    <linearGradient id="glass2" x1="362" y1="40" x2="362" y2="532" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#79A9C9"/>
+      <stop offset="1" stop-color="#2D4E63"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="700" fill="url(#sky2)"/>
+  <rect y="552" width="700" height="148" fill="#DDE2D5"/>
+  <path d="M203 88h275l-13 16H216z" fill="#2A333C"/>
+  <path d="M214 104h20v365h-20zM458 104h18v365h-18z" fill="#2B3035"/>
+  <path d="M254 104h184v432H254z" fill="#D4C2A8"/>
+  <rect x="290" y="104" width="148" height="260" fill="url(#glass2)"/>
+  <rect x="298" y="112" width="132" height="244" fill="#9BC4DE"/>
+  <path d="M331 112v244M364 112v244M397 112v244" stroke="#46687E" stroke-width="3"/>
+  <path d="M298 154h132M298 196h132M298 238h132M298 280h132M298 322h132" stroke="#46687E" stroke-width="3"/>
+  <rect x="300" y="382" width="38" height="34" fill="#6A5A4A"/>
+  <rect x="360" y="432" width="34" height="32" fill="#6A5A4A"/>
+  <rect x="448" y="402" width="126" height="102" fill="#6F7478"/>
+  <rect x="455" y="410" width="112" height="94" fill="#B6C0B9"/>
+  <rect x="162" y="458" width="112" height="18" fill="#7D7A74"/>
+  <rect x="170" y="476" width="94" height="76" fill="#4A575D"/>
+  <rect x="188" y="520" width="10" height="52" fill="#7F1232"/>
+  <path d="M0 600h700" stroke="#C7CFBF" stroke-width="18"/>
+  <path d="M0 575c95 0 140-48 206-48s106 49 174 49c63 0 111-28 162-28s89 24 158 24" stroke="#87A05A" stroke-width="14" stroke-linecap="round"/>
+  <path d="M510 438c18 0 32 14 32 32s-14 32-32 32-32-14-32-32 14-32 32-32Z" fill="#6BA44C"/>
+</svg>
