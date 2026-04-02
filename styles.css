@@ -158,9 +158,9 @@ button {
 
 /* Header layout centers navigation while preserving logo and menu spacing. */
 .header {
-  min-height: 94px;
+  min-height: 112px;
   display: grid;
-  grid-template-columns: 220px 1fr 64px;
+  grid-template-columns: 260px 1fr 64px;
   align-items: center;
   width: min(100%, 1440px);
   margin: 0 auto;
@@ -196,9 +196,9 @@ button {
 
 .brand__logo {
   display: block;
-  width: 178px;
+  width: 240px;
   max-width: 100%;
-  max-height: 62px;
+  max-height: 88px;
   height: auto;
   object-fit: contain;
   object-position: center;
