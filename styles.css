@@ -666,23 +666,24 @@ body.menu-open .menu-toggle span:nth-child(3) {
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(320px, 0.96fr) minmax(320px, 640px);
+  grid-template-columns: minmax(420px, 1.14fr) minmax(320px, 600px);
   gap: 52px;
   align-items: center;
 }
 
 .about__content {
-  max-width: 620px;
+  max-width: 780px;
 }
 
 .about__title {
   margin: 24px 0 0;
-  max-width: 18ch;
-  font-size: clamp(28px, 2.6vw, 40px);
-  line-height: 1.12;
-  letter-spacing: -1.1px;
+  max-width: 24ch;
+  font-size: clamp(28px, 2.5vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -1.35px;
   font-weight: 700;
   color: #181b22;
+  text-wrap: balance;
 }
 
 .about__text {
@@ -1138,18 +1139,33 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .choose-us__title {
   margin: 24px 0 0;
   color: #171b22;
-  font-size: clamp(40px, 4vw, 62px);
+  font-size: clamp(34px, 3.4vw, 54px);
   line-height: 1.08;
   letter-spacing: -1.8px;
   font-weight: 700;
+  max-width: 18ch;
+}
+
+.choose-us__lead {
+  margin: 22px 0 0;
+  max-width: 54ch;
+  padding-left: 18px;
+  border-left: 4px solid rgba(255, 75, 62, 0.8);
+  color: #313846;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.choose-us__lead strong {
+  color: #171b22;
 }
 
 .choose-us__list {
-  margin: 34px 0 0;
+  margin: 30px 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 22px;
+  gap: 18px;
 }
 
 .choose-us__list li {
@@ -1159,7 +1175,13 @@ body.menu-open .menu-toggle span:nth-child(3) {
   align-items: flex-start;
   color: #1d2430;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.62;
+  padding: 14px 16px 14px 0;
+  border-bottom: 1px solid rgba(226, 220, 212, 0.85);
+}
+
+.choose-us__list li strong {
+  color: #171b22;
 }
 
 .choose-us__check {
@@ -1182,8 +1204,9 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .choose-us__note {
   margin: 28px 0 0;
   color: #242b37;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.65;
+  max-width: 48ch;
 }
 
 .choose-us__note strong {
