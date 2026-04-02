@@ -4828,3 +4828,484 @@ body.menu-open .menu-toggle span:nth-child(3) {
     flex-wrap: wrap;
   }
 }
+
+/* Final mobile-only overrides harden stacking and prevent long-content overflow. */
+@media (max-width: 620px) {
+  .site-shell {
+    overflow: hidden;
+  }
+
+  .topbar {
+    gap: 10px;
+    padding: 12px 14px;
+    align-items: stretch;
+  }
+
+  .topbar__group,
+  .topbar__group--right,
+  .topbar__group--center {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .topbar__item {
+    width: 100%;
+    align-items: flex-start;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .topbar__group--left .topbar__item span {
+    overflow-wrap: anywhere;
+  }
+
+  .social-links {
+    width: 100%;
+    justify-content: center;
+    margin-right: 0;
+    gap: 14px;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "cta"
+      "nav";
+    padding: 18px 16px 20px;
+    row-gap: 14px;
+  }
+
+  .brand--image {
+    justify-content: center;
+  }
+
+  .brand__logo {
+    width: min(190px, 62vw);
+  }
+
+  .header__cta {
+    width: 100%;
+    min-width: 0;
+    justify-self: stretch;
+  }
+
+  .nav {
+    width: 100%;
+    gap: 12px;
+    overflow: visible;
+  }
+
+  .nav > a,
+  .nav__item,
+  .nav__dropdown-toggle {
+    width: 100%;
+  }
+
+  .nav > a,
+  .nav__dropdown-toggle {
+    min-height: 48px;
+    padding: 0 16px;
+    border: 1px solid #e3e8ee;
+    border-radius: 14px;
+    background: #fff;
+    font-size: 15px;
+  }
+
+  .nav__submenu {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 16px;
+  }
+
+  .nav__submenu a {
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__content {
+    padding: 48px 16px 40px;
+  }
+
+  .hero__copy {
+    padding: 18px 16px 20px;
+  }
+
+  .hero__title {
+    font-size: 30px;
+    line-height: 1.08;
+  }
+
+  .hero__subtitle {
+    padding-left: 12px;
+  }
+
+  .hero__trust {
+    align-items: flex-start;
+  }
+
+  .properties {
+    padding: 34px 16px 42px;
+  }
+
+  .properties__title {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  .properties__subtitle {
+    font-size: 15px;
+  }
+
+  .property-card__image {
+    min-height: 220px;
+  }
+
+  .property-card__body {
+    padding: 16px 6px 0;
+  }
+
+  .property-card__body h3 {
+    font-size: 20px;
+  }
+
+  .property-card__body p {
+    font-size: 14px;
+  }
+
+  .testimonials {
+    padding: 28px 16px 40px;
+  }
+
+  .testimonials__stats {
+    gap: 18px;
+  }
+
+  .stat-card__line {
+    margin-bottom: 18px;
+  }
+
+  .stat-card strong {
+    font-size: 54px;
+    letter-spacing: -2px;
+  }
+
+  .stat-card p {
+    margin-top: 12px;
+    font-size: 15px;
+  }
+
+  .testimonials__intro {
+    margin-top: 34px;
+  }
+
+  .testimonials__badge {
+    gap: 8px;
+    font-size: 15px;
+  }
+
+  .testimonials__badge::before,
+  .testimonials__badge::after {
+    width: 18px;
+  }
+
+  .testimonials__title {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  .reviews-summary {
+    padding: 30px 18px 22px;
+    border-radius: 20px;
+  }
+
+  .reviews-summary__button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .reviews-summary__brand {
+    gap: 10px;
+    font-size: 22px;
+  }
+
+  .reviews-summary__avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .reviews-summary__more {
+    width: 52px;
+    height: 52px;
+    font-size: 14px;
+  }
+
+  .testimonial-marquee {
+    gap: 16px;
+  }
+
+  .testimonial-marquee__column {
+    height: auto;
+    overflow: visible;
+  }
+
+  .testimonial-marquee__track {
+    animation: none;
+  }
+
+  .testimonial-card {
+    min-height: auto;
+    padding: 20px 18px;
+    border-radius: 20px;
+  }
+
+  .testimonial-card__quote {
+    font-size: 68px;
+  }
+
+  .testimonial-card p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .testimonial-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .testimonial-card__footer h3 {
+    font-size: 20px;
+  }
+
+  .testimonial-card__footer small {
+    margin-top: 6px;
+    font-size: 14px;
+  }
+
+  .testimonial-card__avatar {
+    width: 62px;
+    height: 62px;
+    border-width: 5px;
+  }
+
+  .about {
+    padding: 42px 16px 24px;
+  }
+
+  .about__title {
+    font-size: 28px;
+  }
+
+  .about__text--lead {
+    padding-left: 12px;
+  }
+
+  .about__media {
+    min-height: 340px;
+  }
+
+  .about__photo--top {
+    inset: 0 0 96px 0;
+  }
+
+  .about__photo--bottom {
+    width: 88%;
+  }
+
+  .choose-us {
+    padding: 30px 16px 40px;
+  }
+
+  .choose-us__media {
+    min-height: 420px;
+  }
+
+  .choose-us__photo {
+    border-radius: 24px;
+  }
+
+  .choose-us__photo--primary {
+    inset: 0 18px 132px 0;
+  }
+
+  .choose-us__photo--secondary {
+    width: 84%;
+    min-height: 230px;
+    border-width: 6px;
+  }
+
+  .choose-us__title {
+    font-size: 28px;
+    max-width: none;
+  }
+
+  .choose-us__lead {
+    margin-top: 18px;
+    padding-left: 12px;
+    font-size: 15px;
+  }
+
+  .choose-us__list {
+    gap: 14px;
+  }
+
+  .choose-us__list li {
+    grid-template-columns: 24px 1fr;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 14px;
+  }
+
+  .choose-us__check {
+    width: 24px;
+    height: 24px;
+  }
+
+  .choose-us__note {
+    font-size: 15px;
+  }
+
+  .choose-us__button {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 18px;
+    text-align: center;
+  }
+
+  .selling-benefits__panel,
+  .selling-benefits__item,
+  .quicker-sale__card {
+    border-radius: 20px;
+  }
+
+  .selling-benefits__cta,
+  .offer-cta__call {
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .sell-idea__media {
+    min-height: 340px;
+  }
+
+  .quicker-sale__card {
+    padding: 18px 16px 20px;
+  }
+
+  .insights__header {
+    gap: 20px;
+  }
+
+  .insights__actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .insights__cta {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .offer-cta__call {
+    text-align: center;
+  }
+
+  .site-footer {
+    padding: 18px 10px 0;
+  }
+
+  .site-footer__panel {
+    padding: 26px 14px 0;
+  }
+
+  .site-footer__grid {
+    justify-items: stretch;
+  }
+
+  .site-footer__about,
+  .site-footer__links,
+  .site-footer__call {
+    max-width: none;
+  }
+
+  .site-footer__links,
+  .site-footer__links--locations {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .site-footer__links a {
+    width: 100%;
+    max-width: 320px;
+    white-space: normal;
+    text-align: left;
+    padding-left: 28px;
+  }
+
+  .site-footer__call-link {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .site-footer__call-copy {
+    align-items: center;
+  }
+
+  .site-footer__call-copy strong {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer__bottom {
+    gap: 14px;
+  }
+
+  .floating-tools__top {
+    right: 16px;
+    bottom: 18px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar__item {
+    font-size: 13px;
+  }
+
+  .topbar__item--highlight {
+    font-size: 14px;
+  }
+
+  .hero__title,
+  .properties__title,
+  .testimonials__title,
+  .about__title,
+  .choose-us__title {
+    font-size: 26px;
+  }
+
+  .reviews-summary__score span {
+    font-size: 60px;
+  }
+
+  .reviews-summary__score em {
+    font-size: 48px;
+  }
+
+  .selling-benefits__cta,
+  .offer-cta__call,
+  .header__cta {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .site-footer__call-copy strong {
+    font-size: 18px;
+  }
+}
