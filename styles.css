@@ -4413,6 +4413,211 @@ body.menu-open .menu-toggle span:nth-child(3) {
   }
 }
 
+.privacy-policy {
+  padding: 10px 20px 60px;
+  background: linear-gradient(180deg, #f7f4ef 0%, #efe9e1 100%);
+}
+
+.privacy-policy__inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 42px 38px 38px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 75, 62, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(255, 250, 246, 0.98) 0%, #ffffff 100%);
+  border: 1px solid rgba(228, 221, 213, 0.94);
+  box-shadow: 0 22px 48px rgba(24, 19, 16, 0.07);
+}
+
+.privacy-policy__intro {
+  max-width: 980px;
+}
+
+.privacy-policy__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 154px;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #fff2ef;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.privacy-policy__title {
+  margin: 20px 0 0;
+  color: #171b22;
+  font-size: clamp(30px, 2.8vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  font-weight: 700;
+}
+
+.privacy-policy__lead {
+  margin: 18px 0 0;
+  color: #444d5c;
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.privacy-policy__grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.privacy-policy__card {
+  min-height: 100%;
+  padding: 24px 22px 22px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 247, 244, 0.9) 0%, #ffffff 100%);
+  border: 1px solid rgba(231, 223, 215, 0.96);
+  box-shadow: 0 14px 30px rgba(26, 21, 17, 0.05);
+}
+
+.privacy-policy__icon {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ff5d4d 0%, #ff4b3e 100%);
+  color: #fff;
+  box-shadow: 0 14px 24px rgba(255, 75, 62, 0.18);
+}
+
+.privacy-policy__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.privacy-policy__card h3 {
+  margin: 18px 0 0;
+  color: #151a22;
+  font-size: 22px;
+  line-height: 1.22;
+  letter-spacing: -0.65px;
+  font-weight: 700;
+}
+
+.privacy-policy__card p {
+  margin: 12px 0 0;
+  color: #4b5463;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.privacy-policy__note {
+  margin: 28px 0 0;
+  padding: 18px 22px;
+  border-radius: 20px;
+  background: #171b22;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (max-width: 1250px) {
+  .privacy-policy__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .privacy-policy {
+    padding: 8px 20px 48px;
+  }
+
+  .privacy-policy__inner {
+    padding: 34px 24px 30px;
+    border-radius: 28px;
+  }
+
+  .privacy-policy__title {
+    font-size: clamp(28px, 4.9vw, 38px);
+    letter-spacing: -1px;
+  }
+
+  .privacy-policy__lead {
+    font-size: 15px;
+    line-height: 1.68;
+  }
+}
+
+@media (max-width: 620px) {
+  .privacy-policy {
+    padding: 8px 16px 38px;
+  }
+
+  .privacy-policy__inner {
+    padding: 28px 16px 24px;
+    border-radius: 24px;
+  }
+
+  .privacy-policy__badge {
+    min-width: 138px;
+    height: 38px;
+    font-size: 12px;
+  }
+
+  .privacy-policy__title {
+    font-size: 24px;
+    letter-spacing: -0.9px;
+  }
+
+  .privacy-policy__lead {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+
+  .privacy-policy__grid {
+    margin-top: 24px;
+    gap: 16px;
+  }
+
+  .privacy-policy__card {
+    padding: 20px 16px 18px;
+    border-radius: 20px;
+  }
+
+  .privacy-policy__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+  }
+
+  .privacy-policy__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .privacy-policy__card h3 {
+    margin-top: 16px;
+    font-size: 19px;
+  }
+
+  .privacy-policy__card p,
+  .privacy-policy__note {
+    font-size: 13px;
+    line-height: 1.58;
+  }
+
+  .privacy-policy__note {
+    margin-top: 22px;
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+}
+
 /* Footer uses a strong hero panel plus a layered white information card. */
 .site-footer {
   position: relative;
