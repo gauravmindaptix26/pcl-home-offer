@@ -61,14 +61,33 @@
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#">Home <span>&#8964;</span></a>
-        <a href="#">About Us</a>
-        <a href="#">Property <span>&#8964;</span></a>
-        <a href="#">Agencies <span>&#8964;</span></a>
-        <a href="#">Pages <span>&#8964;</span></a>
-        <a href="#">Blog <span>&#8964;</span></a>
-        <a href="#">Contact Us</a>
+        <a href="#">Home</a>
+        <div class="nav__item nav__item--has-submenu">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="about-menu">
+            <span>About Us</span>
+            <span>&#8964;</span>
+          </button>
+          <div class="nav__submenu nav__submenu--compact" id="about-menu">
+            <a href="#footer">FAQ&apos;s</a>
+            <a href="#footer">Contact Us</a>
+          </div>
+        </div>
+        <a href="#properties">How It Works</a>
+        <a href="#offer-cta">Sell Your House</a>
+        <div class="nav__item nav__item--has-submenu">
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="more-info-menu">
+            <span>More Info</span>
+            <span>&#8964;</span>
+          </button>
+          <div class="nav__submenu" id="more-info-menu">
+            <a href="#footer">Areas We Serve</a>
+            <a href="#values">Situations</a>
+            <a href="#testimonials">Reviews</a>
+          </div>
+        </div>
       </nav>
+
+      <a class="header__cta" href="#footer">Contact Us</a>
     </header>
 
     <!-- Hero section reproduces the reference layout and keeps the primary CTA visible. -->

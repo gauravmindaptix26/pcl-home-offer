@@ -41,7 +41,7 @@ button {
 
 /* Top utility bar matches the slim contact strip from the design. */
 .topbar {
-  height: 68px;
+  height: 54px;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
@@ -219,16 +219,110 @@ button {
 .nav a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   line-height: 1;
-  color: #232730;
+  color: #374151;
+  text-align: center;
+}
+
+.nav__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav__dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #374151;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
 }
 
 .nav a span {
   font-size: 12px;
   margin-top: 3px;
+}
+
+.nav__dropdown-toggle span:last-child {
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.nav__submenu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  min-width: 240px;
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border-top: 2px solid #48b5f5;
+  box-shadow: 0 22px 48px rgba(17, 23, 33, 0.14);
+  overflow: hidden;
+  z-index: 20;
+}
+
+.nav__submenu--compact {
+  min-width: 220px;
+}
+
+.nav__item--open .nav__submenu {
+  display: flex;
+}
+
+.nav__submenu a {
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 16px;
+  border-bottom: 1px solid #e8ebef;
+  color: #172032;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.nav__submenu a:last-child {
+  border-bottom: 0;
+}
+
+.nav__submenu a span {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.header__cta {
+  min-width: 176px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: end;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #62c9f5 0%, #46b4ec 100%);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 14px 26px rgba(70, 180, 236, 0.26);
+  white-space: nowrap;
+}
+
+.header__cta:hover {
+  background: linear-gradient(180deg, #58c2f0 0%, #3eace4 100%);
 }
 
 .menu-toggle {
@@ -1081,10 +1175,10 @@ body.menu-open .menu-toggle span:nth-child(3) {
 /* Desktop-to-laptop transition keeps the nav readable without changing the design. */
 @media (max-width: 1250px) {
   .header {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     grid-template-areas:
-      "brand menu"
-      "nav nav";
+      "brand cta cta"
+      "nav nav nav";
     height: auto;
     padding: 24px 20px;
     row-gap: 24px;
@@ -1102,9 +1196,12 @@ body.menu-open .menu-toggle span:nth-child(3) {
     overflow-x: auto;
   }
 
-  .menu-toggle {
-    grid-area: menu;
-    justify-self: end;
+  .header__cta {
+    grid-area: cta;
+    min-width: 160px;
+    height: 52px;
+    padding: 0 24px;
+    font-size: 16px;
   }
 
   .hero__content {
@@ -1182,7 +1279,10 @@ body.menu-open .menu-toggle span:nth-child(3) {
 
   .header {
     grid-template-columns: 1fr auto;
-    grid-template-areas: "brand menu";
+    grid-template-areas:
+      "brand cta"
+      "nav nav";
+    row-gap: 18px;
   }
 
   .brand__logo {
@@ -1190,24 +1290,52 @@ body.menu-open .menu-toggle span:nth-child(3) {
   }
 
   .nav {
-    position: absolute;
-    top: 208px;
-    left: 16px;
-    right: 16px;
-    z-index: 5;
-    display: none;
+    position: static;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
-    padding: 24px;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid #d8dadf;
-    border-radius: 20px;
-    box-shadow: 0 24px 48px rgba(20, 26, 37, 0.12);
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    grid-area: nav;
   }
 
-  body.menu-open .nav {
-    display: flex;
+  .header__cta {
+    min-width: 148px;
+    height: 48px;
+    padding: 0 20px;
+    font-size: 15px;
+  }
+
+  .nav__item {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav__dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav__submenu {
+    position: static;
+    top: auto;
+    left: auto;
+    min-width: 100%;
+    margin-top: 14px;
+    border: 1px solid #dfe5eb;
+    border-top: 2px solid #48b5f5;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .nav__submenu a {
+    padding: 18px 16px;
+    font-size: 18px;
   }
 
   .hero {
