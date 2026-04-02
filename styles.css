@@ -229,7 +229,7 @@ button {
   gap: 30px;
   padding-left: 0;
   justify-self: start;
-  margin-left: 40px;
+  margin-left: 54px;
   align-self: center;
   flex-wrap: wrap;
 }
@@ -298,7 +298,11 @@ button {
 }
 
 .nav__submenu--locations {
-  min-width: 260px;
+  min-width: 360px;
+}
+
+.nav__submenu--locations a {
+  white-space: nowrap;
 }
 
 .nav__item--open .nav__submenu {
