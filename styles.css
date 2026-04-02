@@ -359,7 +359,7 @@ button {
 .menu-toggle {
   width: 50px;
   height: 50px;
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -1341,20 +1341,36 @@ body.menu-open .menu-toggle span:nth-child(3) {
   .topbar {
     height: auto;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 14px 18px;
+    align-items: stretch;
+    padding: 12px 16px;
+    gap: 10px;
   }
 
   .topbar__group,
   .topbar__group--right {
+    width: 100%;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
+    justify-content: center;
   }
 
   .topbar__group--center {
     position: static;
     left: auto;
     transform: none;
+    justify-content: center;
+  }
+
+  .topbar__item {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .topbar__group--left .topbar__item span {
+    overflow-wrap: anywhere;
   }
 
   .topbar__item--highlight {
@@ -1365,34 +1381,52 @@ body.menu-open .menu-toggle span:nth-child(3) {
   .header {
     grid-template-columns: 1fr auto;
     grid-template-areas:
-      "brand cta"
+      "brand toggle"
+      "cta cta"
       "nav nav";
-    row-gap: 18px;
+    padding: 18px 16px 20px;
+    row-gap: 14px;
+    column-gap: 12px;
   }
 
   .brand__logo {
     width: 176px;
   }
 
+  .menu-toggle {
+    display: inline-flex;
+    grid-area: toggle;
+    justify-self: end;
+  }
+
   .nav {
-    position: static;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: flex-start;
-    gap: 18px;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
+    gap: 12px;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid #e4e8ee;
+    border-radius: 22px;
+    box-shadow: 0 18px 36px rgba(20, 26, 38, 0.08);
     grid-area: nav;
+    margin-left: 0;
+    justify-self: stretch;
+  }
+
+  body.menu-open .nav {
+    display: flex;
   }
 
   .header__cta {
+    width: 100%;
     min-width: 176px;
     height: 44px;
+    grid-area: cta;
+    justify-self: stretch;
     padding: 0 20px;
     font-size: 15px;
+    margin-right: 0;
   }
 
   .nav__item {
@@ -1404,6 +1438,25 @@ body.menu-open .menu-toggle span:nth-child(3) {
   .nav__dropdown-toggle {
     width: 100%;
     justify-content: space-between;
+    min-height: 46px;
+    padding: 0 16px;
+    border: 1px solid #e4e8ee;
+    border-radius: 14px;
+    background: #fff;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .nav > a {
+    width: 100%;
+    min-height: 46px;
+    justify-content: flex-start;
+    padding: 0 16px;
+    border: 1px solid #e4e8ee;
+    border-radius: 14px;
+    font-size: 16px;
+    line-height: 1.3;
+    text-align: left;
   }
 
   .nav__submenu {
@@ -1411,16 +1464,19 @@ body.menu-open .menu-toggle span:nth-child(3) {
     top: auto;
     left: auto;
     min-width: 100%;
-    margin-top: 14px;
+    margin-top: 10px;
     border: 1px solid #dfe5eb;
     border-top: 2px solid #48b5f5;
+    border-radius: 16px;
     box-shadow: none;
     transform: none;
   }
 
   .nav__submenu a {
-    padding: 18px 16px;
-    font-size: 18px;
+    padding: 14px 16px;
+    font-size: 15px;
+    white-space: normal;
+    line-height: 1.4;
   }
 
   .hero {
@@ -1582,8 +1638,21 @@ body.menu-open .menu-toggle span:nth-child(3) {
 
 /* Small-phone tweaks keep text and controls readable within narrow screens. */
 @media (max-width: 620px) {
+  .topbar {
+    padding: 10px 14px 12px;
+  }
+
   .topbar__item {
     font-size: 14px;
+  }
+
+  .topbar__item svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .social-links {
+    gap: 12px;
   }
 
   .brand__text strong {
@@ -1599,7 +1668,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   }
 
   .hero__content {
-    padding: 120px 16px 44px;
+    padding: 48px 16px 44px;
   }
 
   .hero__badge {
@@ -4835,92 +4904,58 @@ body.menu-open .menu-toggle span:nth-child(3) {
     overflow: hidden;
   }
 
-  .topbar {
-    gap: 10px;
-    padding: 12px 14px;
-    align-items: stretch;
-  }
-
-  .topbar__group,
-  .topbar__group--right,
-  .topbar__group--center {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .topbar__item {
-    width: 100%;
-    align-items: flex-start;
-    white-space: normal;
-    line-height: 1.35;
-  }
-
-  .topbar__group--left .topbar__item span {
-    overflow-wrap: anywhere;
-  }
-
-  .social-links {
-    width: 100%;
-    justify-content: center;
-    margin-right: 0;
-    gap: 14px;
-  }
-
   .header {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
     grid-template-areas:
-      "brand"
-      "cta"
+      "brand toggle"
+      "cta cta"
       "nav";
-    padding: 18px 16px 20px;
-    row-gap: 14px;
+    padding: 16px 14px 18px;
+    row-gap: 12px;
   }
 
   .brand--image {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .brand__logo {
-    width: min(190px, 62vw);
+    width: min(164px, 52vw);
   }
 
   .header__cta {
-    width: 100%;
     min-width: 0;
     justify-self: stretch;
   }
 
+  .menu-toggle {
+    width: 46px;
+    height: 46px;
+    gap: 6px;
+    border-radius: 12px;
+  }
+
+  .menu-toggle span {
+    width: 22px;
+  }
+
+  body.menu-open .menu-toggle span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  body.menu-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
   .nav {
-    width: 100%;
-    gap: 12px;
-    overflow: visible;
-  }
-
-  .nav > a,
-  .nav__item,
-  .nav__dropdown-toggle {
-    width: 100%;
+    padding: 14px;
+    border-radius: 18px;
   }
 
   .nav > a,
   .nav__dropdown-toggle {
-    min-height: 48px;
-    padding: 0 16px;
-    border: 1px solid #e3e8ee;
-    border-radius: 14px;
-    background: #fff;
+    min-height: 44px;
+    padding: 0 14px;
     font-size: 15px;
-  }
-
-  .nav__submenu {
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 16px;
-  }
-
-  .nav__submenu a {
-    white-space: normal;
-    line-height: 1.4;
   }
 
   .hero {

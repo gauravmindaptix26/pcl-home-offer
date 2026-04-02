@@ -66,6 +66,12 @@ function closeMenu() {
   menuToggle?.setAttribute("aria-expanded", "false");
 }
 
+function syncMenuForViewport() {
+  if (window.innerWidth > 900) {
+    closeMenu();
+  }
+}
+
 function closeDropdowns(exceptItem) {
   navDropdownItems.forEach((item) => {
     if (item === exceptItem) {
@@ -120,9 +126,12 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+window.addEventListener("resize", syncMenuForViewport);
+
 prevButton?.addEventListener("click", () => changeScene(-1));
 nextButton?.addEventListener("click", () => changeScene(1));
 backToTopButton?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
 // Initialize the hero content after all listeners are connected.
+syncMenuForViewport();
 renderScene(currentScene);
