@@ -4574,23 +4574,24 @@ body.menu-open .menu-toggle span:nth-child(3) {
   content: "";
   position: absolute;
   left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(255, 75, 62, 0.12);
+  top: 11px;
+  width: 14px;
+  height: 10px;
+  border: 2px solid var(--accent);
+  border-top: 0;
+  border-radius: 0 0 3px 3px;
+  box-sizing: border-box;
 }
 
 .site-footer__links a::after {
   content: "";
   position: absolute;
-  left: 18px;
-  top: 10px;
-  width: 8px;
-  height: 8px;
+  left: 1px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
   border-top: 2px solid var(--accent);
-  border-right: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
   transform: rotate(45deg);
 }
 
