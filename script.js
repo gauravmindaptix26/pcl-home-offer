@@ -12,8 +12,8 @@ const backToTopButton = document.querySelector(".floating-tools__top");
 const heroScenes = [
   {
     badge: "GET A CASH OFFER",
-    title: "Sell Your House <span class=\"hero__title-accent\">Fast</span> In Memphis, TN?",
-    subtitle: "Receive a guaranteed <span class=\"hero__subtitle-accent\">cash offer</span> with no pressure, no hidden costs, and no hassle."
+    title: "Sell your home directly and avoid the hassle of listings, showings, and commissions.",
+    subtitle: "We are a trusted direct cash home buyer in the Midsouth, purchasing properties in any condition - completely as-is."
   }
 ];
 
