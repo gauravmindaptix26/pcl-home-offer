@@ -158,9 +158,9 @@ button {
 
 /* Header layout centers navigation while preserving logo and menu spacing. */
 .header {
-  min-height: 112px;
+  min-height: 124px;
   display: grid;
-  grid-template-columns: 260px 1fr 64px;
+  grid-template-columns: 300px 1fr 64px;
   align-items: center;
   width: min(100%, 1440px);
   margin: 0 auto;
@@ -196,9 +196,9 @@ button {
 
 .brand__logo {
   display: block;
-  width: 240px;
+  width: 280px;
   max-width: 100%;
-  max-height: 88px;
+  max-height: 104px;
   height: auto;
   object-fit: contain;
   object-position: center;
@@ -2061,14 +2061,23 @@ body.menu-open .menu-toggle span:nth-child(3) {
   align-items: center;
   gap: 16px;
   color: #0f1a2b;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
 }
 
-.reviews-summary__brand-star {
-  color: #00b67a;
-  font-size: 38px;
-  line-height: 1;
+.reviews-summary__brand-google {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.reviews-summary__brand-google svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .reviews-summary__avatars {
@@ -4403,7 +4412,8 @@ body.menu-open .menu-toggle span:nth-child(3) {
 
 .site-footer__about,
 .site-footer__links,
-.site-footer__location {
+.site-footer__location,
+.site-footer__call {
   width: 100%;
   max-width: 300px;
 }
@@ -4417,6 +4427,63 @@ body.menu-open .menu-toggle span:nth-child(3) {
   line-height: 1.2;
   font-weight: 700;
   text-align: center;
+}
+
+.site-footer__call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-footer__call-link {
+  width: 100%;
+  min-height: 148px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 22px 22px 20px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fff9f6 0%, #fff 100%);
+  box-shadow: 0 18px 38px rgba(12, 12, 14, 0.06);
+}
+
+.site-footer__call-icon {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ff6857 0%, #ff4b3e 100%);
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(255, 75, 62, 0.18);
+}
+
+.site-footer__call-icon svg {
+  width: 24px;
+  height: 24px;
+  transform: translateX(1px);
+}
+
+.site-footer__call-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-footer__call-label {
+  color: #4a515f;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.site-footer__call-copy strong {
+  color: #181b22;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
 }
 
 .site-footer__about p {
@@ -4481,7 +4548,11 @@ body.menu-open .menu-toggle span:nth-child(3) {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.site-footer__links--locations {
+  align-items: flex-start;
 }
 
 .site-footer__links a {
@@ -4495,30 +4566,32 @@ body.menu-open .menu-toggle span:nth-child(3) {
   white-space: nowrap;
 }
 
+.site-footer__links--locations a {
+  white-space: normal;
+}
+
 .site-footer__links a::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 5px;
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--accent);
-  border-top: 0;
-  border-radius: 3px 3px 4px 4px;
-  box-sizing: border-box;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(255, 75, 62, 0.12);
 }
 
 .site-footer__links a::after {
   content: "";
   position: absolute;
-  left: 4px;
-  top: 0;
-  width: 10px;
+  left: 18px;
+  top: 10px;
+  width: 8px;
   height: 8px;
-  border: 2px solid var(--accent);
-  border-bottom: 0;
-  border-radius: 10px 10px 0 0;
-  box-sizing: border-box;
+  border-top: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  transform: rotate(45deg);
 }
 
 .site-footer__address {
@@ -4639,6 +4712,22 @@ body.menu-open .menu-toggle span:nth-child(3) {
   color: #11161d;
   font-size: 16px;
   font-weight: 700;
+}
+
+.site-footer__credit {
+  margin: 0;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.site-footer__credit-link {
+  color: #2f80ed;
+  text-decoration: none;
+}
+
+.site-footer__credit-link:hover {
+  color: #1d64c9;
 }
 
 @media (max-width: 1250px) {
