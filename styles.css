@@ -4484,6 +4484,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   font-size: 24px;
   line-height: 1.15;
   letter-spacing: -0.6px;
+  white-space: nowrap;
 }
 
 .site-footer__about p {
@@ -4765,6 +4766,25 @@ body.menu-open .menu-toggle span:nth-child(3) {
 @media (max-width: 620px) {
   .site-footer {
     padding: 18px 12px 0;
+  }
+
+  .site-footer__call-link {
+    gap: 14px;
+    padding: 18px 16px;
+  }
+
+  .site-footer__call-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .site-footer__call-label {
+    font-size: 13px;
+  }
+
+  .site-footer__call-copy strong {
+    font-size: 20px;
+    letter-spacing: -0.3px;
   }
 
   .site-footer__hero {
