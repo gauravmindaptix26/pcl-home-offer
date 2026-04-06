@@ -59,7 +59,7 @@
 
     <!-- Main header groups the brand, primary navigation, and responsive menu button. -->
     <header class="header">
-      <a class="brand brand--image" href="#" aria-label="PCL Home Offer home">
+      <a class="brand brand--image" href="index.html" aria-label="PCL Home Offer home">
         <img class="brand__logo" src="assets/logo33.png" alt="PCL Home Offer">
       </a>
 
@@ -70,7 +70,7 @@
       </button>
 
       <nav class="nav" id="primary-navigation" aria-label="Primary navigation">
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="#properties">How It Works</a>
         <a href="#">Get Paid For Referring</a>
         <div class="nav__item nav__item--has-submenu">
@@ -79,19 +79,19 @@
             <span>&#8964;</span>
           </button>
           <div class="nav__submenu nav__submenu--locations" id="mississippi-menu">
-            <a href="#footer">We Buy House In Horn Lake, MS</a>
-            <a href="#footer">We Buy House In Southaven, MS</a>
-            <a href="#footer">We Buy House In Olive Branch, MS</a>
-            <a href="#footer">We Buy House In Hernado, MS</a>
-            <a href="#footer">We Buy House In Walls, MS</a>
-            <a href="#footer">We Buy House In Desoto County, MS</a>
+            <a href="location.html?area=horn-lake-ms">We Buy House In Horn Lake, MS</a>
+            <a href="location.html?area=southaven-ms">We Buy House In Southaven, MS</a>
+            <a href="location.html?area=olive-branch-ms">We Buy House In Olive Branch, MS</a>
+            <a href="location.html?area=hernando-ms">We Buy House In Hernando, MS</a>
+            <a href="location.html?area=walls-ms">We Buy House In Walls, MS</a>
+            <a href="location.html?area=desoto-county-ms">We Buy House In DeSoto County, MS</a>
           </div>
         </div>
         <a href="#">Blog</a>
         <a href="#footer">Contact Us</a>
       </nav>
 
-      <a class="header__cta" href="#offer-cta">Get Your Cash Offer</a>
+      <button class="header__cta" type="button" data-open-lead-modal>Get Your Cash Offer</button>
     </header>
 
     <!-- Hero section reproduces the reference layout and keeps the primary CTA visible. -->
@@ -116,26 +116,29 @@
           </div>
         </div>
 
-        <div class="hero__form-card">
+        <div class="hero__form-card" id="hero-offer-form" tabindex="-1">
           <h2 class="hero__form-title">Start Your Offer Request</h2>
           <p class="hero__form-text">Fill out the quick form and our team will get back to you with the next steps.</p>
 
-          <form class="hero__form">
+          <form class="hero__form" data-lead-form data-form-name="Hero Offer Request" novalidate>
+            <input type="hidden" name="_subject" value="New Hero Offer Request">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
             <label class="hero__field">
               <span>Phone Number *</span>
               <div class="hero__phone-row">
-                <select name="country-code" aria-label="Country code">
+                <select name="country_code" aria-label="Country code">
                   <option value="+1">+1</option>
                   <option value="+44">+44</option>
                   <option value="+91">+91</option>
                 </select>
-                <input type="tel" name="phone" placeholder="Phone Number">
+                <input type="tel" name="phone" placeholder="Phone Number" inputmode="tel" autocomplete="tel-national" required>
               </div>
             </label>
 
             <label class="hero__field">
               <span>Address *</span>
-              <input type="text" name="address" placeholder="Address">
+              <input type="text" name="address" placeholder="Address" autocomplete="street-address" required>
             </label>
 
             <label class="hero__consent">
@@ -143,6 +146,7 @@
             </label>
 
             <button class="hero__submit" type="submit">Next</button>
+            <p class="hero__form-status" data-form-status aria-live="polite"></p>
           </form>
         </div>
       </div>
@@ -946,12 +950,16 @@
 
           <h3 class="offer-cta__subhead">Get An Offer Today, Sell In A Matter Of Days</h3>
 
-          <form class="offer-cta__form">
+          <form class="offer-cta__form" data-lead-form data-form-name="Bottom Cash Offer Request" novalidate>
+            <input type="hidden" name="_subject" value="New Bottom Cash Offer Request">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
             <label class="offer-cta__field">
               <span class="sr-only">Home Address</span>
-              <input type="text" name="home-address" placeholder="Enter Your Home Address">
+              <input type="text" name="address" placeholder="Enter Your Home Address" autocomplete="street-address" required>
             </label>
-            <button class="offer-cta__button" type="submit">Get a Cash Offer</button>
+            <button class="offer-cta__button" type="submit" data-submit-label="Get a Cash Offer">Get a Cash Offer</button>
+            <p class="hero__form-status offer-cta__form-status" data-form-status aria-live="polite"></p>
           </form>
         </div>
       </div>
@@ -1020,12 +1028,12 @@
 
           <nav class="site-footer__links site-footer__links--locations" aria-label="Mississippi locations">
             <h3>Areas We Serve</h3>
-            <a href="#footer">We Buy House In Horn Lake, MS</a>
-            <a href="#footer">We Buy House In Southaven, MS</a>
-            <a href="#footer">We Buy House In Olive Branch, MS</a>
-            <a href="#footer">We Buy House In Hernado, MS</a>
-            <a href="#footer">We Buy House In Walls, MS</a>
-            <a href="#footer">We Buy House In Desoto County, MS</a>
+            <a href="location.html?area=horn-lake-ms">We Buy House In Horn Lake, MS</a>
+            <a href="location.html?area=southaven-ms">We Buy House In Southaven, MS</a>
+            <a href="location.html?area=olive-branch-ms">We Buy House In Olive Branch, MS</a>
+            <a href="location.html?area=hernando-ms">We Buy House In Hernando, MS</a>
+            <a href="location.html?area=walls-ms">We Buy House In Walls, MS</a>
+            <a href="location.html?area=desoto-county-ms">We Buy House In DeSoto County, MS</a>
           </nav>
 
           <nav class="site-footer__links" aria-label="Service links">
@@ -1060,6 +1068,45 @@
         </div>
       </div>
     </footer>
+  </div>
+
+  <div class="lead-modal" data-lead-modal aria-hidden="true">
+    <div class="lead-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+      <button class="lead-modal__close" type="button" aria-label="Close popup" data-close-lead-modal>
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="lead-modal__content">
+        <h2 class="lead-modal__title" id="lead-modal-title">Get Your Cash Offer</h2>
+        <p class="lead-modal__text">Fill in your phone number and property address. We will send your request to our team right away.</p>
+
+        <form class="lead-modal__form" data-lead-form data-form-name="Navbar Popup Offer Request" novalidate>
+          <input type="hidden" name="_subject" value="New Navbar Popup Offer Request">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <label class="hero__field">
+            <span>Phone Number *</span>
+            <div class="hero__phone-row">
+              <select name="country_code" aria-label="Country code">
+                <option value="+1">+1</option>
+                <option value="+44">+44</option>
+                <option value="+91">+91</option>
+              </select>
+              <input type="tel" name="phone" placeholder="Phone Number" inputmode="tel" autocomplete="tel-national" required>
+            </div>
+          </label>
+
+          <label class="hero__field">
+            <span>Address *</span>
+            <input type="text" name="address" placeholder="Address" autocomplete="street-address" required>
+          </label>
+
+          <button class="hero__submit lead-modal__submit" type="submit" data-submit-label="Get Offer">Get Offer</button>
+          <p class="hero__form-status" data-form-status aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
   </div>
 
   <!-- Fixed utility controls stay visible while moving between sections. -->
