@@ -6287,6 +6287,10 @@ body.menu-open .menu-toggle span:nth-child(3) {
     font-size: 22px;
   }
 
+  .reviews-summary__avatars {
+    display: none;
+  }
+
   .reviews-summary__avatar {
     width: 42px;
     height: 42px;
