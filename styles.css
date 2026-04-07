@@ -6679,6 +6679,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .location-compare,
 .location-terms,
 .location-story,
+.location-faq,
 .location-situations,
 .location-checklist,
 .location-showcase,
@@ -6842,12 +6843,19 @@ body.menu-open .menu-toggle span:nth-child(3) {
   box-shadow: 0 0 0 4px rgba(82, 194, 240, 0.18);
 }
 
-.location-overview__stat p {
+.location-overview__stat-copy h3 {
   margin: 0;
   font-size: 15px;
-  line-height: 1.7;
-  color: #1d2939;
-  font-weight: 600;
+  line-height: 1.55;
+  color: #132949;
+  font-weight: 700;
+}
+
+.location-overview__stat-copy p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #475467;
 }
 
 .location-benefits,
@@ -6966,6 +6974,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .location-steps,
 .location-compare,
 .location-terms,
+.location-faq,
 .location-checklist,
 .location-showcase {
   padding: 34px;
@@ -7321,6 +7330,92 @@ body.menu-open .menu-toggle span:nth-child(3) {
   line-height: 1.7;
 }
 
+.location-faq__grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  column-count: 2;
+  column-gap: 16px;
+}
+
+.location-faq-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 16px;
+  break-inside: avoid;
+  border-radius: 26px;
+  border: 1px solid rgba(247, 99, 73, 0.16);
+  background: linear-gradient(180deg, #fff8f4 0%, #f8fbff 100%);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+
+.location-faq-card summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px;
+  gap: 16px;
+  align-items: center;
+  padding: 24px 24px 18px;
+  cursor: pointer;
+  color: #20324f;
+  font-size: 20px;
+  line-height: 1.36;
+  font-weight: 600;
+  letter-spacing: -0.45px;
+}
+
+.location-faq-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.location-faq-card summary:focus,
+.location-faq-card summary:focus-visible {
+  outline: none;
+}
+
+.location-faq-card:focus-within {
+  border-color: rgba(247, 99, 73, 0.28);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05), 0 0 0 3px rgba(247, 99, 73, 0.08);
+}
+
+.location-faq-card__icon {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(82, 194, 240, 0.18) 0%, rgba(247, 99, 73, 0.12) 100%);
+}
+
+.location-faq-card__icon::before,
+.location-faq-card__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: #1f2b55;
+  transform: translate(-50%, -50%);
+}
+
+.location-faq-card__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform 0.2s ease;
+}
+
+.location-faq-card[open] .location-faq-card__icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.location-faq-card p {
+  margin: 0;
+  padding: 0 24px 24px;
+  color: #475467;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
 .location-showcase__media {
   position: relative;
   display: grid;
@@ -7500,6 +7595,12 @@ body.menu-open .menu-toggle span:nth-child(3) {
   }
 }
 
+@media (max-width: 900px) {
+  .location-faq__grid {
+    column-count: 1;
+  }
+}
+
 @media (max-width: 720px) {
   .location-page {
     padding: 28px 16px 56px;
@@ -7513,6 +7614,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   .location-steps,
   .location-compare,
   .location-terms,
+  .location-faq,
   .location-story__layout,
   .location-situations,
   .location-checklist,
@@ -7601,6 +7703,15 @@ body.menu-open .menu-toggle span:nth-child(3) {
   .location-checklist__item h3,
   .location-showcase__copy h3 {
     font-size: 22px;
+  }
+
+  .location-faq-card summary {
+    padding: 20px 20px 14px;
+    font-size: 19px;
+  }
+
+  .location-faq-card p {
+    padding: 0 20px 20px;
   }
 
   .location-compare__row {
@@ -7712,6 +7823,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   .location-steps,
   .location-compare,
   .location-terms,
+  .location-faq,
   .location-story__layout,
   .location-situations,
   .location-checklist,
@@ -7805,6 +7917,30 @@ body.menu-open .menu-toggle span:nth-child(3) {
     line-height: 1.18;
   }
 
+  .location-faq-card {
+    border-radius: 22px;
+  }
+
+  .location-faq-card summary {
+    grid-template-columns: minmax(0, 1fr) 38px;
+    gap: 12px;
+    padding: 18px 16px 12px;
+    font-size: 17px;
+    line-height: 1.34;
+  }
+
+  .location-faq-card__icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .location-faq-card p {
+    padding: 0 16px 18px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
   .location-overview__stat {
     grid-template-columns: 12px minmax(0, 1fr);
     gap: 10px;
@@ -7817,12 +7953,17 @@ body.menu-open .menu-toggle span:nth-child(3) {
     margin-top: 5px;
   }
 
-  .location-overview__stat p,
+  .location-overview__stat-copy p,
   .location-benefits__card p,
   .location-nearby__card p,
   .location-callout__inner p {
     font-size: 14px;
     line-height: 1.65;
+  }
+
+  .location-overview__stat-copy h3 {
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   .location-step-card p,
@@ -7932,6 +8073,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   .location-steps,
   .location-compare,
   .location-terms,
+  .location-faq,
   .location-story__layout,
   .location-situations,
   .location-checklist,
@@ -7954,6 +8096,15 @@ body.menu-open .menu-toggle span:nth-child(3) {
   .location-situation-card {
     padding: 16px 14px;
     border-radius: 18px;
+  }
+
+  .location-faq-card summary {
+    padding: 16px 14px 10px;
+    font-size: 16px;
+  }
+
+  .location-faq-card p {
+    padding: 0 14px 16px;
   }
 
   .location-overview__featured {

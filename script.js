@@ -15,6 +15,7 @@ const openLeadModalButtons = document.querySelectorAll("[data-open-lead-modal]")
 const closeLeadModalButtons = document.querySelectorAll("[data-close-lead-modal]");
 const leadModalPhoneInput = leadModal?.querySelector("input[name='phone']");
 const locationPage = document.querySelector("[data-location-page]");
+const faqCards = document.querySelectorAll(".location-faq-card");
 let lastFocusedElement = null;
 
 // Slide content stays centralized here, which keeps rendering logic clean.
@@ -648,6 +649,12 @@ function renderLocationPage() {
     return;
   }
 
+  const marketPointFallbackDetails = [
+    "We review the property details quickly and share the next step without a long back-and-forth process.",
+    "You can sell directly without spending extra money on cleanup, prep work, or listing updates first.",
+    "We work around your schedule so the sale can match your timing, move, and property situation."
+  ];
+
   const params = new URLSearchParams(window.location.search);
   const requestedArea = params.get("area") || locationPage.dataset.defaultArea || locationAreas[0].slug;
   const activeLocation = locationAreaLookup[requestedArea] || locationAreas[0];
@@ -714,12 +721,23 @@ function renderLocationPage() {
   if (stats) {
     stats.innerHTML = activeLocation.marketPoints
       .map(
-        (point) => `
+        (point, index) => {
+          const title = typeof point === "string" ? point : point.title;
+          const text =
+            typeof point === "string"
+              ? marketPointFallbackDetails[index] || marketPointFallbackDetails[marketPointFallbackDetails.length - 1]
+              : point.text;
+
+          return `
           <article class="location-overview__stat">
             <span class="location-overview__stat-icon" aria-hidden="true"></span>
-            <p>${point}</p>
+            <div class="location-overview__stat-copy">
+              <h3>${title}</h3>
+              <p>${text}</p>
+            </div>
           </article>
-        `
+        `;
+        }
       )
       .join("");
   }
@@ -1039,6 +1057,26 @@ async function handleLeadFormSubmit(event) {
   }
 }
 
+function setupFaqAccordion() {
+  if (!faqCards.length) {
+    return;
+  }
+
+  faqCards.forEach((card) => {
+    card.addEventListener("toggle", () => {
+      if (!card.open) {
+        return;
+      }
+
+      faqCards.forEach((otherCard) => {
+        if (otherCard !== card) {
+          otherCard.removeAttribute("open");
+        }
+      });
+    });
+  });
+}
+
 menuToggle?.addEventListener("click", toggleMenu);
 navDropdownItems.forEach((item) => {
   item.querySelector(".nav__dropdown-toggle")?.addEventListener("click", toggleDropdown);
@@ -1090,3 +1128,4 @@ backToTopButton?.addEventListener("click", () => window.scrollTo({ top: 0, behav
 syncMenuForViewport();
 renderScene(currentScene);
 renderLocationPage();
+setupFaqAccordion();
