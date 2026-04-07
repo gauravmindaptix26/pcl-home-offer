@@ -30,6 +30,7 @@ const heroScenes = [
 const locationAreas = [
   {
     slug: "horn-lake-ms",
+    path: "sell-your-house-in-horn-lake",
     name: "Horn Lake, MS",
     badge: "HORN LAKE CASH OFFER",
     title: "We Buy Houses in Horn Lake, MS",
@@ -60,6 +61,7 @@ const locationAreas = [
   },
   {
     slug: "southaven-ms",
+    path: "sell-your-house-in-southaven",
     name: "Southaven, MS",
     badge: "SOUTHAVEN CASH OFFER",
     title: "We Buy Houses in Southaven, MS",
@@ -90,6 +92,7 @@ const locationAreas = [
   },
   {
     slug: "olive-branch-ms",
+    path: "sell-your-house-in-olive-branch",
     name: "Olive Branch, MS",
     badge: "OLIVE BRANCH CASH OFFER",
     title: "We Buy Houses in Olive Branch, MS",
@@ -120,6 +123,7 @@ const locationAreas = [
   },
   {
     slug: "hernando-ms",
+    path: "sell-your-house-in-hernando",
     name: "Hernando, MS",
     badge: "HERNANDO CASH OFFER",
     title: "We Buy Houses in Hernando, MS",
@@ -150,6 +154,7 @@ const locationAreas = [
   },
   {
     slug: "walls-ms",
+    path: "sell-your-house-in-walls",
     name: "Walls, MS",
     badge: "WALLS CASH OFFER",
     title: "We Buy Houses in Walls, MS",
@@ -180,6 +185,7 @@ const locationAreas = [
   },
   {
     slug: "desoto-county-ms",
+    path: "sell-your-house-in-desoto-county",
     name: "DeSoto County, MS",
     badge: "DESOTO COUNTY CASH OFFER",
     title: "We Buy Houses in DeSoto County, MS",
@@ -212,6 +218,18 @@ const locationAreas = [
 
 const locationAreaLookup = Object.fromEntries(
   locationAreas.map((location) => [location.slug, location])
+);
+
+const locationPathLookup = Object.fromEntries(
+  locationAreas.flatMap((location) => {
+    const entries = [[location.path, location]];
+
+    if (location.slug === "desoto-county-ms") {
+      entries.push(["sell-your-house-in-desoto-country", location]);
+    }
+
+    return entries;
+  })
 );
 
 const locationContentIcons = {
@@ -641,7 +659,39 @@ function toggleDropdown(event) {
 }
 
 function createLocationUrl(areaSlug) {
-  return `location.html?area=${encodeURIComponent(areaSlug)}`;
+  const location = locationAreaLookup[areaSlug];
+
+  if (!location) {
+    return "location.html";
+  }
+
+  const pathSegments = window.location.pathname
+    .split("/")
+    .filter(Boolean)
+    .map((segment) => segment.replace(/\.html$/i, "").toLowerCase());
+  const isPrettyLocationPage = pathSegments.some((segment) => locationPathLookup[segment]);
+  const routePrefix = isPrettyLocationPage ? "../" : "";
+
+  return `${routePrefix}${location.path}/`;
+}
+
+function getRequestedLocationSlug() {
+  const pathSegments = window.location.pathname
+    .split("/")
+    .filter(Boolean)
+    .map((segment) => segment.replace(/\.html$/i, "").toLowerCase());
+
+  for (let index = pathSegments.length - 1; index >= 0; index -= 1) {
+    const location = locationPathLookup[pathSegments[index]];
+
+    if (location) {
+      return location.slug;
+    }
+  }
+
+  const params = new URLSearchParams(window.location.search);
+
+  return params.get("area") || "";
 }
 
 function renderLocationPage() {
@@ -655,8 +705,7 @@ function renderLocationPage() {
     "We work around your schedule so the sale can match your timing, move, and property situation."
   ];
 
-  const params = new URLSearchParams(window.location.search);
-  const requestedArea = params.get("area") || locationPage.dataset.defaultArea || locationAreas[0].slug;
+  const requestedArea = getRequestedLocationSlug() || locationPage.dataset.defaultArea || locationAreas[0].slug;
   const activeLocation = locationAreaLookup[requestedArea] || locationAreas[0];
   const shortName = getLocationShortName(activeLocation.name);
   const locationContent = buildLocationPageContent(activeLocation);

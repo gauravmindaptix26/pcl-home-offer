@@ -8141,3 +8141,139 @@ body.menu-open .menu-toggle span:nth-child(3) {
     min-height: 220px;
   }
 }
+
+/* Responsive hardening keeps laptop and mid-size desktop layouts from colliding. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1280px) and (min-width: 901px) {
+  .topbar {
+    height: auto;
+    justify-content: center;
+    padding: 12px 18px;
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  .topbar__group {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .topbar__group--left,
+  .topbar__group--right {
+    flex: 1 1 260px;
+  }
+
+  .topbar__group--center {
+    position: static;
+    left: auto;
+    transform: none;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .topbar__item {
+    font-size: 15px;
+  }
+
+  .topbar__item--highlight {
+    font-size: 16px;
+  }
+
+  .header {
+    grid-template-columns: minmax(220px, 1fr) auto;
+    grid-template-areas:
+      "brand cta"
+      "nav nav";
+    padding: 20px 18px 22px;
+    row-gap: 18px;
+    column-gap: 16px;
+  }
+
+  .brand {
+    grid-area: brand;
+  }
+
+  .brand__logo {
+    width: clamp(210px, 22vw, 260px);
+  }
+
+  .nav {
+    grid-area: nav;
+    margin-left: 0;
+    justify-self: stretch;
+    justify-content: center;
+    gap: 18px 20px;
+    overflow: visible;
+  }
+
+  .nav a,
+  .nav__dropdown-toggle {
+    font-size: 16px;
+  }
+
+  .header__cta {
+    grid-area: cta;
+    justify-self: end;
+    min-width: 190px;
+    max-width: 100%;
+    margin-right: 0;
+    padding: 0 18px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 901px) {
+  .topbar__group--left,
+  .topbar__group--right,
+  .topbar__group--center {
+    width: 100%;
+  }
+
+  .topbar__item {
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "cta"
+      "nav";
+    justify-items: center;
+  }
+
+  .brand--image {
+    justify-content: center;
+  }
+
+  .nav {
+    width: 100%;
+    gap: 14px 18px;
+  }
+
+  .header__cta {
+    width: min(100%, 320px);
+    justify-self: center;
+  }
+
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero__copy,
+  .hero__form-card,
+  .location-hero__copy,
+  .location-hero__form-card {
+    max-width: none;
+  }
+}
