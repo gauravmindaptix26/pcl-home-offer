@@ -1126,6 +1126,24 @@ function setupFaqAccordion() {
   });
 }
 
+function setupSectionLanding() {
+  const sectionTarget = body?.dataset.scrollTarget;
+
+  if (!sectionTarget || window.location.hash) {
+    return;
+  }
+
+  const target = document.getElementById(sectionTarget);
+
+  if (!target) {
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    target.scrollIntoView({ behavior: "auto", block: "start" });
+  });
+}
+
 menuToggle?.addEventListener("click", toggleMenu);
 navDropdownItems.forEach((item) => {
   item.querySelector(".nav__dropdown-toggle")?.addEventListener("click", toggleDropdown);
@@ -1178,3 +1196,4 @@ syncMenuForViewport();
 renderScene(currentScene);
 renderLocationPage();
 setupFaqAccordion();
+setupSectionLanding();
