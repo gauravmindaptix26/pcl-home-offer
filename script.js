@@ -213,6 +213,350 @@ const locationAreaLookup = Object.fromEntries(
   locationAreas.map((location) => [location.slug, location])
 );
 
+const locationContentIcons = {
+  form: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <rect x="7" y="5.5" width="18" height="21" rx="3.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M11 11h10M11 16h7M16.5 22.5l2 2 4-4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+  offer: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <rect x="5.5" y="9" width="21" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <circle cx="16" cy="16" r="3.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M16 11.7v8.6M13.8 13.8c.5-.8 1.3-1.3 2.3-1.3 1.3 0 2.3.8 2.3 1.9 0 1.1-.7 1.7-2.3 2-1.5.3-2.3.9-2.3 2 0 1.1 1 2 2.5 2 1 0 1.8-.3 2.4-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  `,
+  schedule: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <rect x="5.5" y="7.5" width="21" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M10 4.8v5M22 4.8v5M5.5 13h21M12.5 18.3l2.2 2.2 5-5.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+  commission: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M12 12.5c.6-1.2 1.8-1.9 3.4-1.9 1.8 0 3.2 1 3.2 2.5 0 1.5-1 2.3-3.1 2.7-2 .3-3.1 1.1-3.1 2.6 0 1.5 1.4 2.6 3.4 2.6 1.4 0 2.6-.5 3.3-1.4M16 9.4v13.2M8.4 8.4l15.2 15.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  `,
+  closing: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 14.5 16 8l8 6.5v9.5H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M13.2 24V17.5h5.6V24M6.5 14.5 16 6.8l9.5 7.7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="m22.8 11.2 2 2 3.2-3.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+  cash: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M10 10.5h12a4 4 0 0 1 4 4v7a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4v-7a4 4 0 0 1 4-4Z" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M12.5 16h7M16 12.5v7M22.8 8.2l2 2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  `,
+  repairs: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 15.5 16 9l8 6.5V24H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="m10.5 24 5.2-5.2M18.6 12l2.8 2.8M13.6 21.1l-2-2 5.6-5.6a2 2 0 1 1 2.8 2.8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+  showings: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M4.8 16s4-6.2 11.2-6.2S27.2 16 27.2 16s-4 6.2-11.2 6.2S4.8 16 4.8 16Z" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <circle cx="16" cy="16" r="3.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M7.2 24.8 24.8 7.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  `,
+  cleaning: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M9 25h14M12.2 24.8V13.2l7.6 0v11.6M14 13.2V9.8h4v3.4M8.6 21.5l3.6-3.6M10.8 17.9l-2.2-2.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="m21.8 11.2 1.2 1.2 2.2-2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+  foreclosure: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 15.2 16 8.6l8 6.6V24H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M12.5 24v-4.8h7V24M10.2 13.2l11.6 11.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  `,
+  bankruptcy: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 10.5h8.5l-2 3.6 4 3-3.6 6H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M20.5 10.8h5.5M20.5 15.5h4.2M20.5 20.2h3.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  `,
+  probate: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 14.8 16 8l8 6.8V24H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="11.5" cy="19" r="1.7" fill="currentColor"/>
+      <circle cx="16" cy="17.5" r="1.7" fill="currentColor"/>
+      <circle cx="20.5" cy="19" r="1.7" fill="currentColor"/>
+      <path d="M11.5 22v2M16 20.5V24M20.5 22v2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  `,
+  hoarder: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 15 16 8.5l8 6.5V24H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M10.8 19.8h4.2l1.5-2.3 2.2 3.4h2.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+  relocation: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M6.8 14.5 12 10l5.2 4.5V24H6.8zM14.8 11.5 20 7l5.2 4.5V24h-10.4z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M12.5 18h7M17 15l3 3-3 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+  damaged: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 15 16 8.5l8 6.5V24H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="m14.4 13.5-2.2 4h2.3l-1.2 4 4-5.4h-2l1.8-2.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+  `,
+  divorce: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="11.2" cy="10.8" r="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <circle cx="20.8" cy="10.8" r="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M8.8 23v-7l2.4-2.2 2.3 2.2V23M18.5 23v-7l2.3-2.2 2.4 2.2V23M14 14.4l4 4.2M18 14.4l-4 4.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+  downsizing: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M7.5 18.5h8V24h-8zM16.5 11h8v13h-8z" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M10.8 15.5 16 11l5.2 4.5M11.5 24v-3.5h2.8V24M19 24v-5.2h3V24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+    </svg>
+  `,
+  payment: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 15.2 16 8.6l8 6.6V24H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M16 14.2v6.4M14 16.1c.5-.8 1.2-1.2 2.1-1.2 1.1 0 2 .6 2 1.6 0 .9-.6 1.4-2 1.7-1.3.3-2 .8-2 1.7 0 1 1 1.7 2.2 1.7.9 0 1.6-.3 2.1-.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  `,
+  taxes: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 15 16 8.5l8 6.5V24H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <rect x="12" y="15.5" width="8" height="6.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12.8 17.6h6.4M14.5 20h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  `,
+  agent: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="9.8" r="3.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <path d="M10.2 24v-4.8c0-2.4 2.6-4.2 5.8-4.2s5.8 1.8 5.8 4.2V24M22.5 10.5l4.2 4.2M26.7 10.5l-4.2 4.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  `,
+  tenant: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 15 16 8.5l8 6.5V24H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="16" cy="17" r="2.3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12.5 24v-2c0-1.9 1.6-3.3 3.5-3.3s3.5 1.4 3.5 3.3v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  `,
+  fire: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 15.2 16 8.5l8 6.7V24H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M16 22.5c-1.4 0-2.4-.9-2.4-2.2 0-1.7 1.7-2.6 1.7-4.3 1.8 1 3.1 2.3 3.1 4.1 0 1.4-1 2.4-2.4 2.4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+  `,
+  listing: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 16 16 9l8 7v8H8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M11 12.5V8.8l4-2.8M23.2 12.8a5.8 5.8 0 1 1-3.3 10.5M23.2 12.8v3.2h-3.1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `,
+  income: `
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M8 24V11M14 24v-7M20 24v-10M26 24V8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M8 10.5 13 15l5-4.3 3.8 2.8L26 8.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="26" cy="8" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  `
+};
+
+function getLocationShortName(locationName) {
+  return locationName.replace(/,\s*MS$/i, "").trim();
+}
+
+function buildLocationPageContent(location) {
+  const shortName = getLocationShortName(location.name);
+
+  return {
+    compareSummary: `See how a direct cash sale with PCL Home Offer compares with the traditional home-selling route in ${shortName}.`,
+    steps: [
+      {
+        step: "Step 1",
+        title: "Fill Out The Form Or Call Us",
+        text: `Tell us a little about your ${shortName} property and your timeline. We only need the basics to get started.`,
+        icon: locationContentIcons.form
+      },
+      {
+        step: "Step 2",
+        title: "Get Your Fair Cash Offer",
+        text: `After we review the house and confirm the situation, our team will put together a direct cash offer for your property.`,
+        icon: locationContentIcons.offer
+      },
+      {
+        step: "Step 3",
+        title: "Close On Your Schedule",
+        text: `Choose the closing timeline that fits your move. Whether you need speed or flexibility, we work around your plans.`,
+        icon: locationContentIcons.schedule
+      }
+    ],
+    compareRows: [
+      {
+        benefit: "Commissions",
+        positive: "0%",
+        negative: "5% - 6%"
+      },
+      {
+        benefit: "Average days to close",
+        positive: "7 - 21 days",
+        negative: "45 - 90+ days"
+      },
+      {
+        benefit: "Number of showings",
+        positive: "None required",
+        negative: "Often multiple"
+      },
+      {
+        benefit: "Closing costs",
+        positive: "We can cover them",
+        negative: "Often seller paid"
+      },
+      {
+        benefit: "Repairs before selling",
+        positive: "No repairs needed",
+        negative: "Often expected"
+      },
+      {
+        benefit: "Buyer financing risk",
+        positive: "Cash buyer certainty",
+        negative: "Can fall through"
+      }
+    ],
+    terms: [
+      {
+        title: "No real estate commissions",
+        text: "We buy directly, so there are no agent fees or commission costs reducing your bottom line.",
+        icon: locationContentIcons.commission
+      },
+      {
+        title: "We close on your schedule",
+        text: `If you want to sell quickly or need a little extra time in ${shortName}, we can work around your timeline.`,
+        icon: locationContentIcons.closing
+      },
+      {
+        title: "Competitive cash offer",
+        text: "You receive a direct cash offer based on the property and situation instead of waiting on buyer financing.",
+        icon: locationContentIcons.cash
+      },
+      {
+        title: "No upgrades or repairs",
+        text: `We buy houses in ${shortName} as-is, which means you do not need to repair, update, or renovate first.`,
+        icon: locationContentIcons.repairs
+      },
+      {
+        title: "Skip the showings",
+        text: "Avoid open houses, repeated walkthroughs, and the stress of keeping the property market-ready.",
+        icon: locationContentIcons.showings
+      },
+      {
+        title: "No cleaning necessary",
+        text: "You do not need to haul away junk or deep-clean the property before moving forward with a sale.",
+        icon: locationContentIcons.cleaning
+      }
+    ],
+    storyLead: `Selling your house in ${shortName} does not have to be complicated.`,
+    storyCopyPrimary: `Our direct home-buying process helps homeowners receive a fair cash offer without listings, open houses, or financing delays. We keep everything simple, local, and clear from the first call.`,
+    storyCopySecondary: `Whether the property is inherited, outdated, tenant-occupied, or difficult to maintain, we can buy it as-is and help you move forward on the timeline that works for you.`,
+    storyQuote: `The team made selling in ${shortName} feel straightforward. They explained the process clearly, stayed responsive, and gave us a real path forward without the usual stress.`,
+    situationsSummary: `House-selling in ${shortName} can get difficult when repairs, timing, probate, financial pressure, or tenant issues are involved. We work directly with owners and tailor the process around real situations.`,
+    situations: [
+      {
+        title: "Foreclosure",
+        text: "Stop foreclosure pressure and explore a fast direct-sale option.",
+        icon: locationContentIcons.foreclosure
+      },
+      {
+        title: "Bankruptcy",
+        text: "Reduce property stress and move toward a cleaner sale.",
+        icon: locationContentIcons.bankruptcy
+      },
+      {
+        title: "Inheritance / Probate",
+        text: "Sell inherited property without taking on repair work first.",
+        icon: locationContentIcons.probate
+      },
+      {
+        title: "Hoarder House",
+        text: "No full cleanup required before you contact our team.",
+        icon: locationContentIcons.hoarder
+      },
+      {
+        title: "Relocation",
+        text: "Move faster and line up a sale with your next step.",
+        icon: locationContentIcons.relocation
+      },
+      {
+        title: "Damaged House",
+        text: "Sell as-is even if the property needs major work.",
+        icon: locationContentIcons.damaged
+      },
+      {
+        title: "Divorce",
+        text: "Create a simpler path when the property needs to be sold.",
+        icon: locationContentIcons.divorce
+      },
+      {
+        title: "Downsizing",
+        text: "Sell directly and move on without listing headaches.",
+        icon: locationContentIcons.downsizing
+      }
+    ],
+    checklist: [
+      {
+        title: "Behind On Payments",
+        text: "Avoid more pressure and explore a faster exit path.",
+        icon: locationContentIcons.payment
+      },
+      {
+        title: "Back Property Taxes",
+        text: "Turn a difficult property situation into a direct cash solution.",
+        icon: locationContentIcons.taxes
+      },
+      {
+        title: "Selling Without Making Repairs",
+        text: "No repairs, no upgrades, and no prep list required.",
+        icon: locationContentIcons.repairs
+      },
+      {
+        title: "Selling Without An Agent",
+        text: "Work directly with a buyer instead of listing the home.",
+        icon: locationContentIcons.agent
+      },
+      {
+        title: "Tired Landlord Or Tenants",
+        text: "Sell the property even if it has become difficult to manage.",
+        icon: locationContentIcons.tenant
+      },
+      {
+        title: "Fire, Water, And Mold Damage",
+        text: "We buy houses in rough condition and help simplify the next step.",
+        icon: locationContentIcons.fire
+      },
+      {
+        title: "Your House Isn&apos;t Selling",
+        text: "Skip the listing cycle and request a direct cash offer instead.",
+        icon: locationContentIcons.listing
+      },
+      {
+        title: "Loss Of Income",
+        text: "Create a cleaner path forward when the property feels like a burden.",
+        icon: locationContentIcons.income
+      }
+    ],
+    showcaseSummary: `Whether the house needs cleanup, updates, or a quicker closing, we can help you sell in ${shortName} without the usual market prep.`,
+    showcaseCopy: `If you want a direct cash buyer who can close without repairs, listings, or financing delays, PCL Home Offer is ready to help homeowners throughout ${shortName}.`
+  };
+}
+
 // Cache text targets once instead of querying the DOM on every render.
 const heroContent = {
   badge: document.querySelector(".hero__badge"),
@@ -307,6 +651,8 @@ function renderLocationPage() {
   const params = new URLSearchParams(window.location.search);
   const requestedArea = params.get("area") || locationPage.dataset.defaultArea || locationAreas[0].slug;
   const activeLocation = locationAreaLookup[requestedArea] || locationAreas[0];
+  const shortName = getLocationShortName(activeLocation.name);
+  const locationContent = buildLocationPageContent(activeLocation);
   const pageDescription = document.querySelector("#page-description");
   const badge = locationPage.querySelector("[data-location-badge]");
   const title = locationPage.querySelector("[data-location-title]");
@@ -316,11 +662,30 @@ function renderLocationPage() {
   const formCopy = locationPage.querySelector("[data-location-form-copy]");
   const stats = locationPage.querySelector("[data-location-stats]");
   const benefits = locationPage.querySelector("[data-location-benefits]");
+  const steps = locationPage.querySelector("[data-location-steps]");
+  const compareSummary = locationPage.querySelector("[data-location-compare-summary]");
+  const compare = locationPage.querySelector("[data-location-compare]");
+  const terms = locationPage.querySelector("[data-location-terms]");
+  const storyLead = locationPage.querySelector("[data-location-story-lead]");
+  const storyPrimary = locationPage.querySelector("[data-location-story-copy-primary]");
+  const storySecondary = locationPage.querySelector("[data-location-story-copy-secondary]");
+  const storyQuote = locationPage.querySelector("[data-location-story-quote]");
+  const situationsSummary = locationPage.querySelector("[data-location-situations-summary]");
+  const situations = locationPage.querySelector("[data-location-situations]");
+  const checklist = locationPage.querySelector("[data-location-checklist]");
+  const showcaseSummary = locationPage.querySelector("[data-location-showcase-summary]");
+  const showcaseCopy = locationPage.querySelector("[data-location-showcase-copy]");
   const nearby = locationPage.querySelector("[data-location-nearby-links]");
 
   locationPage.dataset.activeArea = activeLocation.slug;
   document.title = `${activeLocation.title} | PCL Home Offer`;
   pageDescription?.setAttribute("content", activeLocation.metaDescription);
+  locationPage.querySelectorAll("[data-location-name]").forEach((element) => {
+    element.textContent = activeLocation.name;
+  });
+  locationPage.querySelectorAll("[data-location-short-name]").forEach((element) => {
+    element.textContent = shortName;
+  });
 
   if (badge) {
     badge.textContent = activeLocation.badge;
@@ -370,6 +735,125 @@ function renderLocationPage() {
         `
       )
       .join("");
+  }
+
+  if (steps) {
+    steps.innerHTML = locationContent.steps
+      .map(
+        (item) => `
+          <article class="location-step-card">
+            <div class="location-step-card__icon">${item.icon}</div>
+            <span class="location-step-card__number">${item.step}</span>
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  if (compareSummary) {
+    compareSummary.textContent = locationContent.compareSummary;
+  }
+
+  if (compare) {
+    compare.innerHTML = `
+      <div class="location-compare__row location-compare__row--head">
+        <div class="location-compare__heading">Benefits</div>
+        <div class="location-compare__heading location-compare__heading--accent">Selling to PCL Home Offer</div>
+        <div class="location-compare__heading">Traditional home sale</div>
+      </div>
+      ${locationContent.compareRows
+        .map(
+          (row) => `
+            <div class="location-compare__row">
+              <div class="location-compare__label">${row.benefit}</div>
+              <div class="location-compare__cell location-compare__cell--positive">
+                <span class="location-compare__icon" aria-hidden="true">&#10003;</span>
+                <span>${row.positive}</span>
+              </div>
+              <div class="location-compare__cell location-compare__cell--negative">
+                <span class="location-compare__icon" aria-hidden="true">&#10005;</span>
+                <span>${row.negative}</span>
+              </div>
+            </div>
+          `
+        )
+        .join("")}
+    `;
+  }
+
+  if (terms) {
+    terms.innerHTML = locationContent.terms
+      .map(
+        (term) => `
+          <article class="location-term-card">
+            <div class="location-term-card__icon">${term.icon}</div>
+            <h3>${term.title}</h3>
+            <p>${term.text}</p>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  if (storyLead) {
+    storyLead.textContent = locationContent.storyLead;
+  }
+
+  if (storyPrimary) {
+    storyPrimary.textContent = locationContent.storyCopyPrimary;
+  }
+
+  if (storySecondary) {
+    storySecondary.textContent = locationContent.storyCopySecondary;
+  }
+
+  if (storyQuote) {
+    storyQuote.textContent = locationContent.storyQuote;
+  }
+
+  if (situationsSummary) {
+    situationsSummary.textContent = locationContent.situationsSummary;
+  }
+
+  if (situations) {
+    situations.innerHTML = locationContent.situations
+      .map(
+        (item, index) => `
+          <article class="location-situation-card">
+            <span class="location-situation-card__count">${String(index + 1).padStart(2, "0")}.</span>
+            <div class="location-situation-card__icon">${item.icon}</div>
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  if (checklist) {
+    checklist.innerHTML = locationContent.checklist
+      .map(
+        (item) => `
+          <article class="location-checklist__item">
+            <div class="location-checklist__icon">${item.icon}</div>
+            <div>
+              <h3>${item.title}</h3>
+              <p>${item.text}</p>
+            </div>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  if (showcaseSummary) {
+    showcaseSummary.textContent = locationContent.showcaseSummary;
+  }
+
+  if (showcaseCopy) {
+    showcaseCopy.textContent = locationContent.showcaseCopy;
   }
 
   if (nearby) {
