@@ -8,7 +8,8 @@ const prevButton = document.querySelector(".hero__arrow--prev");
 const nextButton = document.querySelector(".hero__arrow--next");
 const backToTopButton = document.querySelector(".floating-tools__top");
 const leadForms = document.querySelectorAll("[data-lead-form]");
-const leadFormEndpoint = "https://formsubmit.co/ajax/Jdinvestment901@gmail.com";
+const leadEmailRecipient = "Jdinvestment901@gmail.com";
+const leadFormEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(leadEmailRecipient)}`;
 const leadModal = document.querySelector("[data-lead-modal]");
 const openLeadModalButtons = document.querySelectorAll("[data-open-lead-modal]");
 const closeLeadModalButtons = document.querySelectorAll("[data-close-lead-modal]");
@@ -486,9 +487,14 @@ async function handleLeadFormSubmit(event) {
   setLeadFormPending(form, true);
 
   const formData = new FormData(form);
+  const firstName = String(formData.get("first_name") || "").trim();
+  const lastName = String(formData.get("last_name") || "").trim();
+  const email = String(formData.get("email") || "").trim();
   const countryCode = String(formData.get("country_code") || "").trim();
   const phone = String(formData.get("phone") || "").trim();
+  const message = String(formData.get("message") || "").trim();
   const address = String(formData.get("address") || formData.get("home_address") || "").trim();
+  const fullName = `${firstName} ${lastName}`.trim();
 
   if (countryCode || phone) {
     formData.set("phone", `${countryCode} ${phone}`.trim());
@@ -497,8 +503,27 @@ async function handleLeadFormSubmit(event) {
   }
 
   formData.set("address", address);
+  formData.set("recipient_email", leadEmailRecipient);
   formData.set("form_name", String(form.dataset.formName || "Website Lead"));
   formData.set("page_url", window.location.href);
+
+  if (fullName) {
+    formData.set("name", fullName);
+  } else {
+    formData.delete("name");
+  }
+
+  if (email) {
+    formData.set("_replyto", email);
+    formData.set("email", email);
+  } else {
+    formData.delete("_replyto");
+    formData.delete("email");
+  }
+
+  if (message) {
+    formData.set("message", message);
+  }
 
   try {
     const response = await fetch(leadFormEndpoint, {
@@ -523,7 +548,7 @@ async function handleLeadFormSubmit(event) {
     setLeadFormStatus(
       form,
       "error",
-      "We could not send your request right now. Please call (901) 264-0122 or email Jdinvestment901@gmail.com."
+      `We could not send your request right now. Please call (901) 264-0122 or email ${leadEmailRecipient}.`
     );
   } finally {
     setLeadFormPending(form, false);
