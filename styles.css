@@ -4094,6 +4094,23 @@ body.menu-open .menu-toggle span:nth-child(3) {
 
 .contact-showcase .hero__form-status {
   margin-top: 14px;
+  font-weight: 600;
+}
+
+.contact-showcase p.hero__form-status--success {
+  color: #14532d !important;
+  -webkit-text-fill-color: #14532d;
+  background: #d1fae5;
+  border: 1px solid #6ee7b7;
+  opacity: 1;
+}
+
+.contact-showcase p.hero__form-status--error {
+  color: #7f1d1d !important;
+  -webkit-text-fill-color: #7f1d1d;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  opacity: 1;
 }
 
 .contact-section__header {
