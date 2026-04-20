@@ -6737,13 +6737,22 @@ body.menu-open .menu-toggle span:nth-child(3) {
 .location-hero__chips span {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  padding: 0 16px;
+  justify-content: center;
+  min-width: 150px;
+  min-height: 48px;
+  padding: 0 22px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 10px 24px rgba(7, 17, 28, 0.16);
+  backdrop-filter: blur(8px);
   color: #fff;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
 }
 
 .location-hero__form-card {
@@ -7081,6 +7090,10 @@ body.menu-open .menu-toggle span:nth-child(3) {
   border-radius: 24px;
   background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
   border: 1px solid rgba(72, 181, 245, 0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
   text-align: center;
 }
 
@@ -7135,6 +7148,17 @@ body.menu-open .menu-toggle span:nth-child(3) {
   color: #475467;
 }
 
+.location-step-card h3 {
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.location-step-card p {
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .location-compare__table {
   margin-top: 10px;
   padding-bottom: 6px;
@@ -7185,7 +7209,6 @@ body.menu-open .menu-toggle span:nth-child(3) {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   text-align: center;
   font-size: 19px;
   font-weight: 700;
@@ -7215,12 +7238,32 @@ body.menu-open .menu-toggle span:nth-child(3) {
 }
 
 .location-term-card {
-  padding: 26px 24px;
+  padding: 22px 28px 20px;
   border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
   text-align: center;
   background: linear-gradient(180deg, #fff 0%, #f8fbff 100%);
   border: 1.5px solid rgba(247, 99, 73, 0.42);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+}
+
+.location-term-card h3 {
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.location-term-card p {
+  max-width: 42ch;
+  line-height: 1.64;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.location-terms__grid {
+  gap: 14px;
 }
 
 .location-situations {

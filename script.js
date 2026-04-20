@@ -35,9 +35,98 @@ const locationAreas = [
     badge: "HORN LAKE CASH OFFER",
     title: "We Buy Houses in Horn Lake, MS",
     summary: "Sell your Horn Lake house as-is with a direct cash offer and skip the repairs, listings, and long wait times.",
-    overviewTitle: "A faster way to sell your Horn Lake property",
-    overviewText: "If your Horn Lake home needs repairs, has been inherited, is sitting vacant, or you just need to move quickly, PCL Home Offer can help. We buy houses directly from homeowners and keep the process simple from first contact to closing day.",
+    overviewTitle: "A Faster Way to Sell Your Horn Lake Property",
+    overviewText: "If you need to sell your house fast in Horn Lake MS, whether it needs repairs, is inherited, sitting vacant, or you simply need to move quickly, PCL Home Offer is here to help. We buy homes directly from homeowners and make the entire process simple and stress free from your first contact all the way to closing day.",
     formCopy: "Tell us about your Horn Lake property and our team will contact you with the next steps.",
+    steps: [
+      {
+        step: "Step 1",
+        iconKey: "form",
+        title: "Tell Us About Your Property",
+        text: "Fill out our short form or call (901) 264-0122. Share your address and a few basic details about your home. No inspection required upfront and no lengthy paperwork."
+      },
+      {
+        step: "Step 2",
+        iconKey: "offer",
+        title: "Receive Your Cash Offer",
+        text: "Our local team reviews your property details and gets back to you quickly, often within 24 hours, with a fair, no-obligation cash offer. No pressure and no commitment until you are ready."
+      },
+      {
+        step: "Step 3",
+        iconKey: "schedule",
+        title: "Pick Your Closing Date And Get Paid",
+        text: "Once you accept, we work around your schedule. Need to close in a week or need a few extra weeks first? You choose the closing date, and we handle the rest."
+      }
+    ],
+    terms: [
+      {
+        title: "Facing Foreclosure",
+        iconKey: "foreclosure",
+        text: "If you are behind on payments and need to sell before the bank steps in, we can move quickly to help you protect your equity and credit."
+      },
+      {
+        title: "Inherited Property",
+        iconKey: "probate",
+        text: "Inherited a home you do not plan to keep? We make it easier to sell, even if the estate is still going through probate."
+      },
+      {
+        title: "Divorce",
+        iconKey: "divorce",
+        text: "When a shared property needs to be sold quickly and cleanly, we offer a simple path forward without the delays of a traditional listing."
+      },
+      {
+        title: "Relocation",
+        iconKey: "relocation",
+        text: "Moving for work or family and cannot afford to wait months for a buyer? We close on your timeline."
+      },
+      {
+        title: "Tired Landlords",
+        iconKey: "tenant",
+        text: "Done dealing with difficult tenants or a rental property that costs more than it earns? We will make you an offer regardless of occupancy."
+      },
+      {
+        title: "Financial Hardship",
+        iconKey: "income",
+        text: "Medical bills, job loss, or mounting debt, whatever the reason, we are here to help you move forward without judgment."
+      }
+    ],
+    compareHeadings: {
+      benefit: "Benefits",
+      positive: "PCL Home Offer",
+      negative: "Traditional Listing"
+    },
+    compareRows: [
+      {
+        benefit: "Time to Offer",
+        positive: "Within 24 hours",
+        negative: "Weeks to months"
+      },
+      {
+        benefit: "Repairs Needed",
+        positive: "None",
+        negative: "Usually required"
+      },
+      {
+        benefit: "Agent Commissions",
+        positive: "None",
+        negative: "Typically 5 - 6%"
+      },
+      {
+        benefit: "Closing Timeline",
+        positive: "You choose",
+        negative: "Buyer-dependent"
+      },
+      {
+        benefit: "Financing Fall-Through Risk",
+        positive: "None",
+        negative: "Common"
+      },
+      {
+        benefit: "Open Houses / Showings",
+        positive: "None",
+        negative: "Multiple"
+      }
+    ],
     metaDescription: "Request a direct cash offer for your Horn Lake, MS property. PCL Home Offer buys houses as-is with flexible closing dates.",
     marketPoints: [
       "Cash offer review within 24 hours",
@@ -294,93 +383,127 @@ function getLocationShortName(locationName) {
 
 function buildLocationPageContent(location) {
   const shortName = getLocationShortName(location.name);
+  const defaultSteps = [
+    {
+      step: "Step 1",
+      title: "Fill Out The Form Or Call Us",
+      text: `Tell us a little about your ${shortName} property and your timeline. We only need the basics to get started.`,
+      icon: locationContentIcons.form
+    },
+    {
+      step: "Step 2",
+      title: "Get Your Fair Cash Offer",
+      text: `After we review the house and confirm the situation, our team will put together a direct cash offer for your property.`,
+      icon: locationContentIcons.offer
+    },
+    {
+      step: "Step 3",
+      title: "Close On Your Schedule",
+      text: `Choose the closing timeline that fits your move. Whether you need speed or flexibility, we work around your plans.`,
+      icon: locationContentIcons.schedule
+    }
+  ];
+  const steps = (location.steps || defaultSteps).map((item, index) => ({
+    step: item.step || defaultSteps[index]?.step || `Step ${index + 1}`,
+    title: item.title || defaultSteps[index]?.title || "",
+    text: item.text || defaultSteps[index]?.text || "",
+    icon:
+      item.icon ||
+      (item.iconKey ? locationContentIcons[item.iconKey] : "") ||
+      defaultSteps[index]?.icon ||
+      locationContentIcons.form
+  }));
+  const defaultTerms = [
+    {
+      title: "No real estate commissions",
+      text: "We buy directly, so there are no agent fees or commission costs reducing your bottom line.",
+      icon: locationContentIcons.commission
+    },
+    {
+      title: "We close on your schedule",
+      text: `If you want to sell quickly or need a little extra time in ${shortName}, we can work around your timeline.`,
+      icon: locationContentIcons.closing
+    },
+    {
+      title: "Competitive cash offer",
+      text: "You receive a direct cash offer based on the property and situation instead of waiting on buyer financing.",
+      icon: locationContentIcons.cash
+    },
+    {
+      title: "No upgrades or repairs",
+      text: `We buy houses in ${shortName} as-is, which means you do not need to repair, update, or renovate first.`,
+      icon: locationContentIcons.repairs
+    },
+    {
+      title: "Skip the showings",
+      text: "Avoid open houses, repeated walkthroughs, and the stress of keeping the property market-ready.",
+      icon: locationContentIcons.showings
+    },
+    {
+      title: "No cleaning necessary",
+      text: "You do not need to haul away junk or deep-clean the property before moving forward with a sale.",
+      icon: locationContentIcons.cleaning
+    }
+  ];
+  const terms = (location.terms || defaultTerms).map((item, index) => ({
+    title: item.title || defaultTerms[index]?.title || "",
+    text: item.text || defaultTerms[index]?.text || "",
+    icon:
+      item.icon ||
+      (item.iconKey ? locationContentIcons[item.iconKey] : "") ||
+      defaultTerms[index]?.icon ||
+      locationContentIcons.cash
+  }));
+  const defaultCompareHeadings = {
+    benefit: "Benefits",
+    positive: "Selling to PCL Home Offer",
+    negative: "Traditional home sale"
+  };
+  const compareHeadings = {
+    benefit: location.compareHeadings?.benefit || defaultCompareHeadings.benefit,
+    positive: location.compareHeadings?.positive || defaultCompareHeadings.positive,
+    negative: location.compareHeadings?.negative || defaultCompareHeadings.negative
+  };
+  const defaultCompareRows = [
+    {
+      benefit: "Commissions",
+      positive: "0%",
+      negative: "5% - 6%"
+    },
+    {
+      benefit: "Average days to close",
+      positive: "7 - 21 days",
+      negative: "45 - 90+ days"
+    },
+    {
+      benefit: "Number of showings",
+      positive: "None required",
+      negative: "Often multiple"
+    },
+    {
+      benefit: "Closing costs",
+      positive: "We can cover them",
+      negative: "Often seller paid"
+    },
+    {
+      benefit: "Repairs before selling",
+      positive: "No repairs needed",
+      negative: "Often expected"
+    },
+    {
+      benefit: "Buyer financing risk",
+      positive: "Cash buyer certainty",
+      negative: "Can fall through"
+    }
+  ];
+  const compareRows = location.compareRows || defaultCompareRows;
 
   return {
     compareSummary: `See how a direct cash sale with PCL Home Offer compares with the traditional home-selling route in ${shortName}.`,
-    steps: [
-      {
-        step: "Step 1",
-        title: "Fill Out The Form Or Call Us",
-        text: `Tell us a little about your ${shortName} property and your timeline. We only need the basics to get started.`,
-        icon: locationContentIcons.form
-      },
-      {
-        step: "Step 2",
-        title: "Get Your Fair Cash Offer",
-        text: `After we review the house and confirm the situation, our team will put together a direct cash offer for your property.`,
-        icon: locationContentIcons.offer
-      },
-      {
-        step: "Step 3",
-        title: "Close On Your Schedule",
-        text: `Choose the closing timeline that fits your move. Whether you need speed or flexibility, we work around your plans.`,
-        icon: locationContentIcons.schedule
-      }
-    ],
-    compareRows: [
-      {
-        benefit: "Commissions",
-        positive: "0%",
-        negative: "5% - 6%"
-      },
-      {
-        benefit: "Average days to close",
-        positive: "7 - 21 days",
-        negative: "45 - 90+ days"
-      },
-      {
-        benefit: "Number of showings",
-        positive: "None required",
-        negative: "Often multiple"
-      },
-      {
-        benefit: "Closing costs",
-        positive: "We can cover them",
-        negative: "Often seller paid"
-      },
-      {
-        benefit: "Repairs before selling",
-        positive: "No repairs needed",
-        negative: "Often expected"
-      },
-      {
-        benefit: "Buyer financing risk",
-        positive: "Cash buyer certainty",
-        negative: "Can fall through"
-      }
-    ],
-    terms: [
-      {
-        title: "No real estate commissions",
-        text: "We buy directly, so there are no agent fees or commission costs reducing your bottom line.",
-        icon: locationContentIcons.commission
-      },
-      {
-        title: "We close on your schedule",
-        text: `If you want to sell quickly or need a little extra time in ${shortName}, we can work around your timeline.`,
-        icon: locationContentIcons.closing
-      },
-      {
-        title: "Competitive cash offer",
-        text: "You receive a direct cash offer based on the property and situation instead of waiting on buyer financing.",
-        icon: locationContentIcons.cash
-      },
-      {
-        title: "No upgrades or repairs",
-        text: `We buy houses in ${shortName} as-is, which means you do not need to repair, update, or renovate first.`,
-        icon: locationContentIcons.repairs
-      },
-      {
-        title: "Skip the showings",
-        text: "Avoid open houses, repeated walkthroughs, and the stress of keeping the property market-ready.",
-        icon: locationContentIcons.showings
-      },
-      {
-        title: "No cleaning necessary",
-        text: "You do not need to haul away junk or deep-clean the property before moving forward with a sale.",
-        icon: locationContentIcons.cleaning
-      }
-    ],
+    steps,
+    compareHeadings,
+    compareRows,
+    terms,
     storyLead: `Selling your house in ${shortName} does not have to be complicated.`,
     storyCopyPrimary: `Our direct home-buying process helps homeowners receive a fair cash offer without listings, open houses, or financing delays. We keep everything simple, local, and clear from the first call.`,
     storyCopySecondary: `Whether the property is inherited, outdated, tenant-occupied, or difficult to maintain, we can buy it as-is and help you move forward on the timeline that works for you.`,
@@ -725,9 +848,9 @@ function renderLocationPage() {
   if (compare) {
     compare.innerHTML = `
       <div class="location-compare__row location-compare__row--head">
-        <div class="location-compare__heading">Benefits</div>
-        <div class="location-compare__heading location-compare__heading--accent">Selling to PCL Home Offer</div>
-        <div class="location-compare__heading">Traditional home sale</div>
+        <div class="location-compare__heading">${locationContent.compareHeadings.benefit}</div>
+        <div class="location-compare__heading location-compare__heading--accent">${locationContent.compareHeadings.positive}</div>
+        <div class="location-compare__heading">${locationContent.compareHeadings.negative}</div>
       </div>
       ${locationContent.compareRows
         .map(
@@ -735,11 +858,9 @@ function renderLocationPage() {
             <div class="location-compare__row">
               <div class="location-compare__label">${row.benefit}</div>
               <div class="location-compare__cell location-compare__cell--positive">
-                <span class="location-compare__icon" aria-hidden="true">&#10003;</span>
                 <span>${row.positive}</span>
               </div>
               <div class="location-compare__cell location-compare__cell--negative">
-                <span class="location-compare__icon" aria-hidden="true">&#10005;</span>
                 <span>${row.negative}</span>
               </div>
             </div>
