@@ -7028,24 +7028,41 @@ body.menu-open .menu-toggle span:nth-child(3) {
 }
 
 .location-callout__inner {
-  padding: 28px 34px;
+  padding: 32px 34px;
   text-align: center;
+}
+
+.location-callout__lead {
+  margin: 0 auto;
+  max-width: 48ch;
+  font-size: clamp(30px, 2.8vw, 42px);
+  line-height: 1.28;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: #101828;
+  text-wrap: balance;
 }
 
 .location-callout__inner h2 {
   margin: 0;
-  font-size: 32px;
-  line-height: 1.1;
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.08;
   color: #101828;
+  letter-spacing: -1px;
+  text-wrap: balance;
 }
 
 .location-callout__inner p {
-  margin: 14px auto 0;
-  max-width: 760px;
-  font-size: 16px;
-  line-height: 1.75;
+  margin: 16px auto 0;
+  max-width: 900px;
+  font-size: 17px;
+  line-height: 1.8;
   color: #475467;
   overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .location-callout__inner a {
@@ -7384,18 +7401,47 @@ body.menu-open .menu-toggle span:nth-child(3) {
 
 .location-story__layout {
   display: grid;
-  grid-template-columns: minmax(320px, 470px) minmax(0, 1fr);
-  gap: 24px;
-  padding: 34px;
+  grid-template-columns: minmax(380px, 0.95fr) minmax(0, 1.2fr);
+  gap: 28px;
+  align-items: center;
+  padding: 30px 32px;
   border-radius: 30px;
-  background: #fff;
-  border: 1px solid rgba(16, 24, 40, 0.06);
-  box-shadow: 0 18px 34px rgba(14, 23, 38, 0.06);
+  background: linear-gradient(180deg, #ffffff 0%, #fdfefe 100%);
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 20px 38px rgba(14, 23, 38, 0.07);
 }
 
 .location-story__media {
   position: relative;
-  min-height: 520px;
+  min-height: 500px;
+}
+
+.location-story__content {
+  min-width: 0;
+  max-width: 920px;
+  justify-self: start;
+}
+
+.location-story__content .location-section__eyebrow {
+  background: #fff7f2;
+  border-color: rgba(247, 99, 73, 0.18);
+  color: #f76349;
+}
+
+.location-story__content .location-section__title {
+  max-width: 28ch;
+  margin-top: 16px;
+  font-size: clamp(30px, 2.8vw, 46px);
+  line-height: 1.06;
+  letter-spacing: -1.4px;
+  color: #172033;
+  text-wrap: balance;
+}
+
+.location-story__content .location-section__text {
+  max-width: 72ch;
+  margin-top: 16px;
+  line-height: 1.68;
 }
 
 .location-story__photo {
@@ -7407,50 +7453,58 @@ body.menu-open .menu-toggle span:nth-child(3) {
 }
 
 .location-story__photo--primary {
-  inset: 0 58px 92px 0;
+  inset: 0 74px 78px 0;
+  border-radius: 34px;
   background-image: url("assets/house-isolated-field.jpg");
+  box-shadow: 0 24px 44px rgba(15, 23, 42, 0.12);
 }
 
 .location-story__photo--secondary {
   right: 0;
   bottom: 0;
-  width: 64%;
-  min-height: 220px;
+  width: 70%;
+  min-height: 230px;
   border: 8px solid #fff;
+  border-radius: 28px;
   background-image: url("assets/wooded-park-middle-city.jpg");
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.14);
 }
 
 .location-story__lead {
   margin: 18px 0 0;
-  color: #0f2a4c;
-  font-size: 32px;
+  max-width: 28ch;
+  color: #0f3e78;
+  font-size: clamp(22px, 1.95vw, 34px);
   line-height: 1.18;
   font-weight: 800;
-  letter-spacing: -0.9px;
+  letter-spacing: -0.7px;
+  text-wrap: balance;
 }
 
 .location-story__quote {
-  margin-top: 24px;
-  padding: 22px 24px;
-  border-radius: 24px;
-  background: linear-gradient(180deg, #eef6ff 0%, #f8fbff 100%);
-  border: 1px solid rgba(82, 194, 240, 0.18);
+  margin-top: 22px;
+  padding: 20px 22px 22px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #edf5ff 0%, #f8fbff 100%);
+  border: 1px solid rgba(82, 194, 240, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .location-story__quote-mark {
   display: block;
   color: #1f2b55;
-  font-size: 56px;
+  font-size: 64px;
   line-height: 0.8;
   font-weight: 800;
 }
 
 .location-story__quote p {
-  margin: 8px 0 0;
+  margin: 4px 0 0;
+  max-width: 68ch;
   color: #1f2b55;
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.68;
+  text-wrap: pretty;
 }
 
 .location-faq__grid {
@@ -7612,14 +7666,29 @@ body.menu-open .menu-toggle span:nth-child(3) {
 }
 
 .location-showcase__copy {
-  max-width: 980px;
-  margin: 24px auto 0;
+  max-width: 1400px;
+  margin: 28px auto 0;
   text-align: center;
 }
 
 .location-showcase__copy h3 {
-  font-size: clamp(28px, 3.1vw, 52px);
-  line-height: 1.08;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(28px, 2.7vw, 46px);
+  line-height: 1.12;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+.location-showcase__copy p {
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 17px;
+  line-height: 1.76;
+  white-space: normal;
+  text-wrap: pretty;
 }
 
 @media (max-width: 1180px) {
@@ -7670,7 +7739,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
   }
 
   .location-story__layout {
-    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+    grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
     align-items: center;
   }
 }
@@ -7714,7 +7783,8 @@ body.menu-open .menu-toggle span:nth-child(3) {
   }
 
   .location-story__media {
-    min-height: 420px;
+    min-height: 390px;
+    max-width: 520px;
   }
 }
 
@@ -7862,21 +7932,22 @@ body.menu-open .menu-toggle span:nth-child(3) {
   }
 
   .location-story__media {
-    min-height: 320px;
+    min-height: 330px;
   }
 
   .location-story__photo--primary {
-    inset: 0 34px 72px 0;
+    inset: 0 52px 62px 0;
   }
 
   .location-story__photo--secondary {
-    width: 58%;
-    min-height: 156px;
+    width: 64%;
+    min-height: 168px;
     border-width: 6px;
   }
 
   .location-story__lead {
-    font-size: 24px;
+    max-width: none;
+    font-size: 22px;
   }
 
   .location-showcase__media {
@@ -8098,6 +8169,11 @@ body.menu-open .menu-toggle span:nth-child(3) {
     line-height: 1.65;
   }
 
+  .location-callout__lead {
+    font-size: 20px;
+    line-height: 1.34;
+  }
+
   .location-benefits__card,
   .location-nearby__card {
     padding: 18px 16px;
@@ -8142,16 +8218,16 @@ body.menu-open .menu-toggle span:nth-child(3) {
   }
 
   .location-story__media {
-    min-height: 260px;
+    min-height: 270px;
   }
 
   .location-story__photo--primary {
-    inset: 0 18px 56px 0;
+    inset: 0 34px 52px 0;
   }
 
   .location-story__photo--secondary {
-    width: 56%;
-    min-height: 124px;
+    width: 62%;
+    min-height: 132px;
   }
 
   .location-story__lead,

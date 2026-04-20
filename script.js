@@ -34,7 +34,7 @@ const locationAreas = [
     name: "Horn Lake, MS",
     badge: "HORN LAKE CASH OFFER",
     title: "We Buy Houses in Horn Lake, MS",
-    summary: "Sell your Horn Lake house as-is with a direct cash offer and skip the repairs, listings, and long wait times.",
+    summary: "Sell your home fast in Horn Lake, MS and receive a fair cash offer within 24 hours.",
     overviewTitle: "A Faster Way to Sell Your Horn Lake Property",
     overviewText: "If you need to sell your house fast in Horn Lake MS, whether it needs repairs, is inherited, sitting vacant, or you simply need to move quickly, PCL Home Offer is here to help. We buy homes directly from homeowners and make the entire process simple and stress free from your first contact all the way to closing day.",
     formCopy: "Tell us about your Horn Lake property and our team will contact you with the next steps.",
@@ -504,10 +504,10 @@ function buildLocationPageContent(location) {
     compareHeadings,
     compareRows,
     terms,
-    storyLead: `Selling your house in ${shortName} does not have to be complicated.`,
-    storyCopyPrimary: `Our direct home-buying process helps homeowners receive a fair cash offer without listings, open houses, or financing delays. We keep everything simple, local, and clear from the first call.`,
-    storyCopySecondary: `Whether the property is inherited, outdated, tenant-occupied, or difficult to maintain, we can buy it as-is and help you move forward on the timeline that works for you.`,
-    storyQuote: `The team made selling in ${shortName} feel straightforward. They explained the process clearly, stayed responsive, and gave us a real path forward without the usual stress.`,
+    storyLead: `We know that deciding to sell your house is a big deal.`,
+    storyCopyPrimary: `Whether you have been in your home for two years or twenty, the process can feel overwhelming, especially when you are under pressure. That is why we do things differently at PCL Home Offer.`,
+    storyCopySecondary: `When you reach out to sell your house fast in ${shortName}, you talk to a real local team that listens, explains every step clearly, and never rushes you or makes promises it cannot keep.`,
+    storyQuote: `No confusing paperwork. No surprise fees. No waiting around. Just a fair cash offer, a smooth process, and a closing date you choose.`,
     situationsSummary: `House-selling in ${shortName} can get difficult when repairs, timing, probate, financial pressure, or tenant issues are involved. We work directly with owners and tailor the process around real situations.`,
     situations: [
       {
@@ -593,8 +593,8 @@ function buildLocationPageContent(location) {
         icon: locationContentIcons.income
       }
     ],
-    showcaseSummary: `Whether the house needs cleanup, updates, or a quicker closing, we can help you sell in ${shortName} without the usual market prep.`,
-    showcaseCopy: `If you want a direct cash buyer who can close without repairs, listings, or financing delays, PCL Home Offer is ready to help homeowners throughout ${shortName}.`
+    showcaseSummary: `Sell directly, skip the stress, and move forward with a simple cash sale in ${shortName}.`,
+    showcaseCopy: `If you're ready to skip the stress and sell your house in ${shortName}, Mississippi the simple way, PCL Home Offer is ready to help.`
   };
 }
 
