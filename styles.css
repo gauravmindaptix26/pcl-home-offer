@@ -6719,7 +6719,7 @@ body.menu-open .menu-toggle span:nth-child(3) {
     grid-template-areas:
       "brand toggle"
       "cta cta"
-      "nav";
+      "nav nav";
     padding: 16px 14px 18px;
     row-gap: 12px;
   }
@@ -8985,5 +8985,289 @@ img {
   .location-hero__copy,
   .location-hero__form-card {
     max-width: none;
+  }
+}
+
+/* Shared responsive guardrails for every static page. */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body,
+.site-shell {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+}
+
+.hero__content,
+.hero__copy,
+.hero__form-card,
+.properties__grid,
+.projects__grid,
+.testimonials__layout,
+.values__grid,
+.contact-showcase__form-card,
+.contact-direct__grid,
+.contact-journey__layout,
+.contact-locations__grid,
+.insights__grid,
+.offer-cta__layout,
+.privacy-policy__grid,
+.site-footer__grid,
+.location-hero,
+.location-hero__copy,
+.location-hero__form-card,
+.location-overview__layout,
+.location-benefits__grid,
+.location-steps__grid,
+.location-terms__grid,
+.location-situations__grid,
+.location-checklist__grid,
+.location-story__layout,
+.location-nearby__grid,
+.blog-post__inner,
+.blog-post__content,
+.blog-steps,
+.blog-benefits {
+  min-width: 0;
+}
+
+.hero__title,
+.hero__subtitle,
+.contact-showcase__headline,
+.contact-showcase__summary,
+.contact-section__title,
+.insights__title,
+.offer-cta__title,
+.privacy-policy__title,
+.site-footer__hero-title,
+.location-hero__title,
+.location-section__title,
+.blog-post__content h1,
+.blog-post__content h2,
+.blog-post__content h3,
+.blog-post__content p,
+.blog-callout,
+.topbar__item,
+.header__cta,
+.contact-callout__button,
+.offer-cta__call {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .header {
+    position: relative;
+    z-index: 20;
+  }
+
+  .nav {
+    max-height: calc(100dvh - 220px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav__submenu,
+  .nav__submenu--locations {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .topbar__group--center .topbar__item--highlight {
+    white-space: normal;
+  }
+
+  .hero__content,
+  .hero__copy,
+  .hero__form-card,
+  .contact-showcase__form-card,
+  .offer-cta__content,
+  .location-hero__form-card {
+    width: 100%;
+  }
+
+  .hero__form-card,
+  .contact-showcase__form-card,
+  .location-hero__form-card {
+    justify-self: stretch;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .topbar__item {
+    gap: 8px;
+  }
+
+  .topbar__item,
+  .topbar__item--highlight {
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .nav {
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .nav > a,
+  .nav__dropdown-toggle,
+  .nav__submenu a {
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .hero__content,
+  .contact-showcase,
+  .contact-direct,
+  .contact-journey,
+  .contact-locations,
+  .contact-callout,
+  .insights,
+  .offer-cta,
+  .privacy-policy,
+  .location-page,
+  .blog-post {
+    width: 100%;
+  }
+
+  .hero__copy,
+  .hero__form-card,
+  .property-card,
+  .project-card,
+  .contact-direct__card,
+  .contact-journey__content,
+  .contact-locations__card,
+  .insight-card,
+  .privacy-policy__inner,
+  .privacy-policy__card,
+  .location-hero,
+  .location-overview,
+  .location-benefits,
+  .location-steps,
+  .location-compare,
+  .location-terms,
+  .location-faq,
+  .location-story__layout,
+  .location-situations,
+  .location-checklist,
+  .location-showcase,
+  .location-nearby,
+  .location-callout__inner,
+  .blog-post__content {
+    max-width: 100%;
+  }
+
+  .hero__badge,
+  .projects__badge,
+  .about__badge,
+  .choose-us__button,
+  .insights__cta,
+  .insight-card__tag,
+  .privacy-policy__badge,
+  .location-hero__badge,
+  .location-section__eyebrow,
+  .contact-section__eyebrow,
+  .contact-showcase__eyebrow {
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero__phone-row,
+  .contact-showcase__field-grid,
+  .offer-cta__form,
+  .location-checklist__item,
+  .blog-steps,
+  .blog-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__submit,
+  .contact-showcase__submit,
+  .offer-cta__button,
+  .blog-callout__cta {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .location-compare__table {
+    overflow-x: visible;
+  }
+
+  .location-compare__row {
+    min-width: 0;
+    grid-template-columns: 1fr;
+    border: 1px solid rgba(16, 24, 40, 0.08);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .location-compare__row + .location-compare__row {
+    margin-top: 12px;
+  }
+
+  .location-compare__row--head {
+    display: none;
+  }
+
+  .location-compare__label,
+  .location-compare__cell {
+    justify-content: flex-start;
+    text-align: left;
+    padding: 14px 16px;
+  }
+
+  .location-compare__cell {
+    border-top: 1px solid rgba(16, 24, 40, 0.08);
+  }
+
+  .location-compare__cell--positive::before {
+    content: "PCL Home Offer: ";
+    margin-right: 6px;
+    font-weight: 800;
+  }
+
+  .location-compare__cell--negative::before {
+    content: "Traditional Listing: ";
+    margin-right: 6px;
+    font-weight: 800;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero__title,
+  .contact-showcase__headline,
+  .location-hero__title {
+    line-height: 1.12;
+  }
+
+  .hero__content {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .header__cta,
+  .contact-callout__button,
+  .offer-cta__call {
+    min-height: 44px;
+    padding-left: 14px;
+    padding-right: 14px;
+    line-height: 1.25;
   }
 }
