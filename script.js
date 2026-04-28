@@ -209,6 +209,99 @@ const locationAreas = [
         text: "Your sale stays off the open market, which means fewer disruptions and a more controlled process."
       }
     ]
+  },
+  {
+    slug: "hernando-ms",
+    path: "sell-your-house-in-hernando",
+    name: "Hernando, MS",
+    badge: "HERNANDO CASH OFFER",
+    title: "We Buy Houses in Hernando, MS",
+    summary: "Sell your Hernando house directly for cash and avoid repairs, agent fees, and long listing timelines.",
+    overviewTitle: "A simple cash sale option for Hernando homeowners",
+    overviewText: "Whether your Hernando property needs repairs, has been inherited, is vacant, or you need to sell quickly, PCL Home Offer can help. We buy houses as-is and give local homeowners a direct path to a fair cash offer.",
+    formCopy: "Tell us about your Hernando property and our team will contact you with the next steps.",
+    metaDescription: "Get a direct cash offer for your Hernando, MS house. PCL Home Offer buys homes as-is with flexible closing dates.",
+    marketPoints: [
+      "Fast review for Hernando sellers",
+      "No repairs, cleanup, or open houses",
+      "Flexible closing dates that fit your move"
+    ],
+    benefits: [
+      {
+        title: "Sell Without Repairs",
+        text: "We buy Hernando homes as-is, so you do not need to spend money preparing the property for the market."
+      },
+      {
+        title: "Skip Listing Uncertainty",
+        text: "Avoid waiting on showings, inspections, appraisals, and buyer financing approvals."
+      },
+      {
+        title: "Close On Your Timeline",
+        text: "Choose a closing date that works for your situation, whether you need speed or a little extra time."
+      }
+    ]
+  },
+  {
+    slug: "walls-ms",
+    path: "sell-your-house-in-walls",
+    name: "Walls, MS",
+    badge: "WALLS CASH OFFER",
+    title: "We Buy Houses in Walls, MS",
+    summary: "Need to sell a Walls property fast? We buy houses for cash and keep the process simple from start to closing.",
+    overviewTitle: "Sell your Walls property without listing delays",
+    overviewText: "PCL Home Offer helps Walls homeowners sell properties in any condition. If the house needs repairs, has tenants, is inherited, or no longer fits your plans, we can review it and make a straightforward cash offer.",
+    formCopy: "Share your Walls property details and we will follow up with your local offer options.",
+    metaDescription: "Sell your Walls, MS house as-is for cash. Request a fair local offer from PCL Home Offer.",
+    marketPoints: [
+      "Direct cash-buyer process",
+      "No agent commissions or repair lists",
+      "Clear next steps for Walls homeowners"
+    ],
+    benefits: [
+      {
+        title: "As-Is Purchase",
+        text: "You can sell the property in its current condition without fixing, painting, or cleaning it first."
+      },
+      {
+        title: "Fewer Delays",
+        text: "Work directly with a local buyer instead of waiting for a traditional buyer to get financing."
+      },
+      {
+        title: "Straightforward Sale",
+        text: "We keep communication clear and move at a pace that matches your needs."
+      }
+    ]
+  },
+  {
+    slug: "desoto-county-ms",
+    path: "sell-your-house-in-desoto-county",
+    name: "DeSoto County, MS",
+    badge: "DESOTO COUNTY CASH OFFER",
+    title: "We Buy Houses in DeSoto County, MS",
+    summary: "Sell your DeSoto County house directly for cash and skip repairs, showings, commissions, and uncertainty.",
+    overviewTitle: "A direct home-selling solution across DeSoto County",
+    overviewText: "From Horn Lake and Southaven to Olive Branch, Hernando, Walls, and nearby communities, PCL Home Offer buys houses directly from DeSoto County homeowners. We make the process simple when you need a fair cash offer and a flexible closing timeline.",
+    formCopy: "Tell us about your DeSoto County property and our team will contact you quickly.",
+    metaDescription: "Request a cash offer for your DeSoto County, MS house. PCL Home Offer buys homes as-is across local Mississippi communities.",
+    marketPoints: [
+      "Serving homeowners across DeSoto County",
+      "No repairs, agent fees, or showings",
+      "Flexible closings for difficult timelines"
+    ],
+    benefits: [
+      {
+        title: "Countywide Local Help",
+        text: "We work with homeowners throughout DeSoto County and understand common local selling situations."
+      },
+      {
+        title: "Any Condition",
+        text: "Inherited homes, rentals, vacant houses, and properties needing repairs can all be reviewed for a cash offer."
+      },
+      {
+        title: "Simple Closing",
+        text: "Once you accept the offer, we help coordinate the closing date around your plans."
+      }
+    ]
   }
 ];
 
@@ -610,6 +703,10 @@ let currentScene = 0;
 // Render the active scene and guard against missing nodes for safer production behavior.
 function renderScene(index) {
   if (!hero || !heroContent.badge || !heroContent.title || !heroContent.subtitle) {
+    return;
+  }
+
+  if (hero.dataset.heroStatic === "true") {
     return;
   }
 
